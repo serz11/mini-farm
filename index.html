@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Farm Capital</title>
-    <script>
-    document.write('<scr' + 'ipt src="https://telegram.org' + '/js/telegram-web-app.js"></scr' + 'ipt>');
-</script>
+         <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background: #22541c; display: flex; justify-content: center; color: #fff; }
@@ -135,7 +133,9 @@
 
     let tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
     if (window.Telegram?.WebApp) { window.Telegram.WebApp.ready(); window.Telegram.WebApp.expand(); }
-    const playerId = tgUser?.id ? String(tgUser.id) : '1429805465';
+    const guestId = localStorage.getItem('fc_guest_id') || (() => { const id = String(Math.floor(100000000 + Math.random() * 900000000)); localStorage.setItem('fc_guest_id', id); return id; })();
+const playerId = tgUser?.id ? String(tgUser.id) : guestId;
+
     const SAVE_KEY = 'farmCapitalFull_' + playerId;
 
     if (tgUser) {
