@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-ферма</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d5a27 0%, #588157 50%, #a3b18a 100%);
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            max-width: 860px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            border-radius: 0 0 16px 16px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        h1 { margin: 0; font-size: 24px; }
+        .stats-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        #balance {
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd700;
+            padding: 8px 14px;
+            border-radius: 10px;
+            color: #ffe066;
+        }
+        #levelBox {
+            font-size: 16px;
+            font-weight: bold;
+            background: rgba(82, 183, 136, 0.25);
+            border: 1px solid #52b788;
+            padding: 8px 14px;
+            border-radius: 10px;
+            color: #b7e4c7;
+        }
+        select {
+            font-size: 15px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background-color: #1b4332;
+            color: #fff;
+            cursor: pointer;
+        }
+        .garden {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 860px;
+            margin: 35px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .plot {
+            background: #5c4033;
+            border: 4px solid #3e2723;
+            border-radius: 16px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .plot:hover { transform: translateY(-4px); }
+        .plot.growing {
+            background: #4a3525;
+            border-color: #f4a261;
+        }
+        .plot.ready {
+            background: #2b593f;
+            border-color: #52b788;
+            box-shadow: 0 0 20px rgba(82, 183, 136, 0.7);
+        }
+        .plot-emoji { font-size: 48px; margin-bottom: 8px; }
+        .plot-status { font-size: 15px; font-weight: bold; text-align: center; padding: 0 8px; }
+        footer {
+            margin-top: auto;
+            padding: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        button {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:active { transform: scale(0.97); }
+        #buyPlotButton { background: #e9c46a; color: #1d3557; }
+        #buyPlotButton:hover { background: #f4a261; }
+        #fertilizeAll { background: #52b788; color: #081c15; }
+        #fertilizeAll:hover { background: #74c69d; }
+        #resetButton { background: rgba(230, 57, 70, 0.85); color: #fff; }
+        #resetButton:hover { background: #e63946; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚜 Мини-ферма</h1>
+    <div class="stats-bar">
+        <div id="balance">💰 100 монет</div>
+        <div id="levelBox">⭐ Ур. 1 (0/100 XP | +0%)</div>
+    </div>
+    <select id="cropSelection">
+        <option value="wheat">🌾 Пшеница (3 сек | -10 / +25 💰 | +10 XP)</option>
+        <option value="carrot">🥕 Морковь (6 сек | -25 / +65 💰 | +25 XP)</option>
+        <option value="pumpkin">🎃 Тыква (10 сек | -50 / +140 💰 | +60 XP)</option>
+        <option value="strawberry">🍓 Клубника (15 сек | -100 / +300 💰 | +150 XP)</option>
+    </select>
+</header>
+
+<div class="garden" id="garden"></div>
+
+<footer>
+    <button id="buyPlotButton">➕ Купить грядку (50 💰)</button>
+    <button id="fertilizeAll">⚡ Удобрить всё (30 💰)</button>
+    <button id="resetButton">🔄 Сбросить прогресс</button>
+</footer>
+
+<script>
+    // Справочник культур: время роста, цена семян, базовая продажа, опыт и иконка
+    const CROPS = {
+        wheat: { name: 'Пшеница', time: 3, buy: 10, sell: 25, xp: 10, icon: '🌾' },
+        carrot: { name: 'Морковь', time: 6, buy: 25, sell: 65, xp: 25, icon: '🥕' },
+        pumpkin: { name: 'Тыква', time: 10, buy: 50, sell: 140, xp: 60, icon: '🎃' },
+        strawberry: { name: 'Клубника', time: 15, buy: 100, sell: 300, xp: 150, icon: '🍓' }
+    };
+
+    // Загружаем сохранённое состояние игры или создаём начальное
+    let saved = JSON.parse(localStorage.getItem('miniFarmState')) || {};
+    let state = {
+        balance: saved.balance ?? 100,
+        level: saved.level ?? 1,
+        xp: saved.xp ?? 0,
+        plots: saved.plots ?? [
+            { crop: null, timeLeft: 0 },
+            { crop: null, timeLeft: 0 }
+        ]
+    };
+
+    const gardenEl = document.getElementById('garden');
+    const balanceEl = document.getElementById('balance');
+    const levelBoxEl = document.getElementById('levelBox');
+    const cropSelect = document.getElementById('cropSelection');
+    const buyBtn = document.getElementById('buyPlotButton');
+    const fertilizeBtn = document.getElementById('fertilizeAll');
+    const resetBtn = document.getElementById('resetButton');
+
+    // Расчёт цены следующей грядки (50, 100, 200, 400...)
+    function getNextPlotPrice() {
+        return 50 * Math.pow(2, state.plots.length - 2);
+    }
+
+    // Расчёт множителя цены продажи от уровня (+10% за каждый уровень выше 1-го)
+    function getSellMultiplier() {
+        return 1 + (state.level - 1) * 0.1;
+    }
+
+    // Расчёт итоговой цены продажи с учётом бонуса уровня
+    function getFinalSellPrice(baseSell) {
+        return Math.round(baseSell * getSellMultiplier());
+    }
+
+    // Сохранение прогресса в память браузера
+    function saveState() {
+        localStorage.setItem('miniFarmState', JSON.stringify(state));
+    }
+
+    // Отрисовка всего интерфейса
+    function render() {
+        const bonusPercent = (state.level - 1) * 10;
+        const xpNeeded = state.level * 100;
+
+        balanceEl.innerText = `💰 ${state.balance} монет`;
+        levelBoxEl.innerText = `⭐ Ур. ${state.level} (${state.xp}/${xpNeeded} XP | +${bonusPercent}%)`;
+        buyBtn.innerText = `➕ Купить грядку (${getNextPlotPrice()} 💰)`;
+
+        gardenEl.innerHTML = '';
+        state.plots.forEach((plot, index) => {
+            const div = document.createElement('div');
+            div.className = 'plot';
+
+            if (!plot.crop) {
+                div.innerHTML = `<div class="plot-emoji">🟫</div><div class="plot-status">Пусто (посадить)</div>`;
+            } else if (plot.timeLeft > 0) {
+                div.classList.add('growing');
+                const stageIcon = plot.timeLeft > CROPS[plot.crop].time / 2 ? '🌰' : '🌱';
+                div.innerHTML = `<div class="plot-emoji">${stageIcon}</div><div class="plot-status">Растёт: ${plot.timeLeft} сек...</div>`;
+            } else {
+                div.classList.add('ready');
+                const reward = getFinalSellPrice(CROPS[plot.crop].sell);
+                div.innerHTML = `<div class="plot-emoji">${CROPS[plot.crop].icon}</div><div class="plot-status">Готово! (+${reward} 💰)</div>`;
+            }
+
+            div.onclick = () => handlePlotClick(index);
+            gardenEl.appendChild(div);
+        });
+    }
+
+    // Нажатие на грядку (посадка или сбор урожая с начислением опыта)
+    function handlePlotClick(index) {
+        const plot = state.plots[index];
+
+        // Если грядка пустая — сажаем выбранную культуру
+        if (!plot.crop) {
+            const selectedKey = cropSelect.value;
+            const cropData = CROPS[selectedKey];
+            if (state.balance < cropData.buy) {
+                alert('Недостаточно монет для покупки семян!');
+                return;
+            }
+            state.balance -= cropData.buy;
+            plot.crop = selectedKey;
+            plot.timeLeft = cropData.time;
+        } 
+        // Если урожай созрел — собираем монеты и начисляем опыт
+        else if (plot.timeLeft === 0) {
+            const cropData = CROPS[plot.crop];
+            state.balance += getFinalSellPrice(cropData.sell);
+            state.xp += cropData.xp;
+
+            // Проверка повышения уровня (каждые level * 100 XP)
+            while (state.xp >= state.level * 100) {
+                state.xp -= state.level * 100;
+                state.level++;
+            }
+
+            plot.crop = null;
+        }
+
+        saveState();
+        render();
+    }
+
+    // Покупка новой грядки
+    buyBtn.onclick = () => {
+        const price = getNextPlotPrice();
+        if (state.balance < price) {
+            alert('Недостаточно монет для новой грядки!');
+            return;
+        }
+        state.balance -= price;
+        state.plots.push({ crop: null, timeLeft: 0 });
+        saveState();
+        render();
+    };
+    // Кнопка «Удобрить всё» — сокращает оставшееся время на всех растущих грядках в 2 раза
+    fertilizeBtn.onclick = () => {
+        const hasGrowing = state.plots.some(p => p.crop && p.timeLeft > 0);
+        if (!hasGrowing) {
+            alert('Сейчас на грядках ничего не растёт!');
+            return;
+        }
+        if (state.balance < 30) {
+            alert('Недостаточно монет для покупки удобрения (нужно 30 💰)!');
+            return;
+        }
+        state.balance -= 30;
+        state.plots.forEach(plot => {
+            if (plot.crop && plot.timeLeft > 0) {
+                plot.timeLeft = Math.floor(plot.timeLeft / 2);
+            }
+        });
+        saveState();
+        render();
+    };
+
+    // Сброс прогресса
+    resetBtn.onclick = () => {
+        if (!confirm('Точно сбросить весь прогресс игры?')) return;
+        state = {
+            balance: 100,
+            level: 1,
+            xp: 0,
+            plots: [{ crop: null, timeLeft: 0 }, { crop: null, timeLeft: 0 }]
+        };
+        saveState();
+        render();
+    };
+
+    // Единый таймер роста (тикает каждую секунду)
+    setInterval(() => {
+        let changed = false;
+        state.plots.forEach(plot => {
+            if (plot.crop && plot.timeLeft > 0) {
+                plot.timeLeft--;
+                changed = true;
+            }
+        });
+        if (changed) {
+            saveState();
+            render();
+        }
+    }, 1000);
+
+    // Первый запуск отрисовки
+    render();
+</script>
+
+</body>
+</html>
+
