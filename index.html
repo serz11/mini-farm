@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Farm Capital</title>
-    <script src="https://telegram.org"></script>
+    <script>
+    document.write('<scr' + 'ipt src="https://telegram.org' + '/js/telegram-web-app.js"></scr' + 'ipt>');
+</script>
     <style>
         * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background: #22541c; display: flex; justify-content: center; color: #fff; }
@@ -302,8 +304,8 @@
             body.innerHTML = rows;
         } else if (type === 'friends') {
             title.innerText = 'Друзья и награды';
-            const refLink = `https://t.me{playerId}`;
-            body.innerHTML = `<div class="card-item">Приглашайте друзей — получайте <b>100 монет и 1 гем</b>!<br><br>Ваша ссылка:<br><code style="font-size:11px;">${refLink}</code><button class="card-btn" onclick="copyText('${refLink}')">Копировать</button></div>`;
+            const refLink = 'https://t.me' + '/serz11_minifarm_bot/farm?startapp=' + playerId;
+           body.innerHTML = `<div class="card-item">Приглашайте друзей — получайте <b>100 монет и 1 гем</b>!<br><br>Ваша ссылка:<br><code style="font-size:11px;">${refLink}</code><button class="card-btn" onclick="copyText('${refLink}')">Копировать</button></div>`;
         } else if (type === 'leaders') {
             title.innerText = 'Лидеры';
             body.innerHTML = `<div class="card-item">Сейчас топ по сбору: <b>🌾 пшеница</b><br><br>1. 🥇 Вы (#${playerId}) — ${state.coins} 🪙<br>2. 🥈 Сергей — 675 🪙<br>3. 🥉 Денис — 485 🪙</div>`;
