@@ -779,6 +779,19 @@
         }
     }
 
+        const APP_VERSION = '2.5';
+    (function checkAppUpdate() {
+        const lastVer = localStorage.getItem('fc_app_ver');
+        if (lastVer && lastVer !== APP_VERSION) {
+            const bar = document.createElement('div');
+            bar.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:1000;display:flex;justify-content:center;align-items:center;padding:20px;';
+            bar.innerHTML = `<div class="modal-box" style="text-align:center;"><h2 class="modal-title">🚀 Доступно обновление!</h2><div class="card-item">Вышла новая версия <b>Farm Capital v${APP_VERSION}</b> (Пруд, Компост, Шахта и новые награды). Нажмите кнопку ниже, чтобы обновить игру!</div><button class="card-btn" style="background:#52b83e;color:#fff;font-size:15px;" onclick="localStorage.setItem('fc_app_ver','${APP_VERSION}');location.reload(true);">🔄 Обновить игру</button></div>`;
+            document.body.appendChild(bar);
+        } else {
+            localStorage.setItem('fc_app_ver', APP_VERSION);
+        }
+    })();
+
     function filterMarket() {
         const t = document.getElementById('fType')?.value || 'all', l = document.getElementById('fLvl')?.value || 'all', s = document.getElementById('fSort')?.value || 'asc';
         let list = GAME_CONFIG.marketItems.filter(x => (t === 'all' || x.type === t) && (l === 'all' || String(x.lvl) === l));
@@ -799,6 +812,20 @@
     function checkRiddle() { const v = (document.getElementById('rIn')?.value || '').trim().toLowerCase(); const r = GAME_CONFIG.dailyRiddle; if (v === r.answer) { state.coins += r.coins; state.gems += r.gems; addXp(r.xp); state.riddleDone = true; saveGame(); renderMain(); openModal('bonus', 0); } else showToast('Неверно! Подсказка: пшеница'); }
     const closeModal = () => { stopFishLoop(); document.getElementById('modalOverlay').classList.remove('active'); };
     const closeModalOnBg = (e) => { if (e.target.id === 'modalOverlay') closeModal(); };
+
+    setInterval(() => {
+        const phase = Math.sin(Date.now() / 420);
+        document.querySelectorAll('.tree-emoji.sway').forEach((el, i) => {
+            const dir = i % 2 === 0 ? 1 : -1;
+            el.style.transform = `rotate(${(phase * 6 * dir).toFixed(1)}deg)`;
+        });
+        document.querySelectorAll('.plot-icon').forEach((el, i) => {
+            if (['🌿', '🌾', '🌽', '🍄', '🥕', '🍉', '🍌'].includes(el.innerText)) {
+                const s = 1 + Math.sin(Date.now() / 360 + i) * 0.07;
+                el.style.transform = `scale(${s.toFixed(3)}, ${(2 - s).toFixed(3)})`;
+            }
+        });
+    }, 60);
 
     setInterval(() => {
         let u = false;
@@ -824,3 +851,4 @@
 </script>
 </body>
 </html>
+
