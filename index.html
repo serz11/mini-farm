@@ -210,6 +210,7 @@
             crystal: saved.mine?.crystal ?? 0,
             coal: saved.mine?.coal ?? 0,
             miningEnd: saved.mine?.miningEnd ?? 0,
+            claimed: saved.mine?.claimed ?? true,
             failStreak: saved.mine?.failStreak ?? 0,
             stats: { speed: saved.mine?.stats?.speed ?? 0, energy: saved.mine?.stats?.energy ?? 0, luck: saved.mine?.stats?.luck ?? 0 }
         },
@@ -364,13 +365,14 @@
             const m = state.mine;
             const now = Math.floor(Date.now() / 1000);
             const left = Math.max(0, (m.miningEnd || 0) - now);
+            const canClaim = left === 0 && m.claimed === false;
             body.innerHTML = `
                 <div class="mine-res-row"><div class="mine-pill">🥇 ${m.gold}</div><div class="mine-pill">💎 ${m.crystal}</div><div class="mine-pill">🪨 ${m.coal}</div></div>
                 <div class="mine-res-row" style="grid-template-columns:1fr 1fr;"><div class="mine-pill">🪙 ${state.coins}</div><div class="mine-pill">💎 ${state.gems}</div></div>
                 <div class="card-item" style="background:#3c4a5c;border-color:#647891;text-align:center;">
                     <div id="pickAnim" class="${left > 0 ? 'swing' : ''}" style="font-size:48px;margin:4px 0;">⛏️</div>
-                    <div style="font-size:20px;font-weight:900;margin-bottom:8px;">${left > 0 ? fmtTime24(left) : 'Готово к добыче'}</div>
-                    <button class="card-btn" ${left > 0 ? 'disabled' : ''} onclick="startMineCycle()">${left > 0 ? 'Добыча...' : '⛏️ Начать добычу (4ч)'}</button>
+                    <div style="font-size:20px;font-weight:900;margin-bottom:8px;">${left > 0 ? fmtTime24(left) : (canClaim ? 'Добыча завершена!' : 'Готово к добыче')}</div>
+                    <button class="card-btn" style="${canClaim ? 'background:#52b83e;color:#fff;' : ''}" ${left > 0 ? 'disabled' : ''} onclick="${canClaim ? 'claimMineReward()' : 'startMineCycle()'}">${left > 0 ? 'Добыча...' : (canClaim ? '🎁 Забрать добычу' : '⛏️ Начать добычу (4ч)')}</button>
                 </div>
                 <div class="card-item" style="background:#3c4a5c;border-color:#647891;">
                     <div style="margin-bottom:4px;">💪 Скорость: <b>${m.stats.speed}/20</b></div>
@@ -388,7 +390,12 @@
                 <div class="card-item">🥉 3 место: 400 💎 + 5 000 🪙</div>
                 <div class="card-item">4 место: 300 💎 + 4 000 🪙 | 5 место: 250 💎 + 3 000 🪙</div>
                 <div class="card-item" style="text-align:center;font-size:12px;">Ты пока вне рейтинга — пополни TON и займи место!</div>`;
-        } else if (type === 'shop') {
+        } else {
+            openModalMid(type, subTab, title, tabs, body);
+        }
+    }
+    function openModalMid(type, subTab, title, tabs, body) {
+        if (type === 'shop') {
             title.innerText = 'Магазин';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('shop',0)">Семена</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('shop',1)">Монеты</button><button class="tab-btn ${subTab===2?'active':''}" onclick="openModal('shop',2)">Прочее</button>`;
             if (subTab === 0) {
@@ -401,12 +408,7 @@
             } else {
                 body.innerHTML = `<div style="text-align:center;padding:24px;font-weight:bold;">Раздел настроим позже</div>`;
             }
-        } else {
-            openModalMid(type, subTab, title, tabs, body);
-        }
-    }
-    function openModalMid(type, subTab, title, tabs, body) {
-        if (type === 'barn') {
+        } else if (type === 'barn') {
             title.innerText = 'Склад';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('barn',0)">Семена</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('barn',1)">Склад</button>`;
             if (subTab === 0) {
@@ -432,7 +434,12 @@
             } else {
                 body.innerHTML = `<div class="card-item"><input id="promoIn" placeholder="Введите промокод (напр. FARM2026)..." style="width:100%;padding:10px;border-radius:10px;border:none;"><button class="card-btn" onclick="activatePromo()">Активировать</button></div>`;
             }
-        } else if (type === 'tasks') {
+        } else {
+            openModalEnd(type, subTab, title, tabs, body);
+        }
+    }
+    function openModalEnd(type, subTab, title, tabs, body) {
+        if (type === 'tasks') {
             title.innerText = 'Задания';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('tasks',0)">Основные</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('tasks',1)">Партнёрские</button>`;
             if (subTab === 0) {
@@ -461,10 +468,10 @@
                 });
             }
         } else {
-            openModalEnd(type, subTab, title, tabs, body);
+            openModalLast(type, subTab, title, tabs, body);
         }
     }
-    function openModalEnd(type, subTab, title, tabs, body) {
+    function openModalLast(type, subTab, title, tabs, body) {
         if (type === 'market') {
             title.innerText = 'Маркет';
             body.innerHTML = `<div class="filter-row"><select id="fType" class="filter-sel" onchange="filterMarket()"><option value="all">Все</option><option value="Курица">Курица</option><option value="Корова">Корова</option><option value="Овца">Овца</option></select><select id="fLvl" class="filter-sel" onchange="filterMarket()"><option value="all">Любой ур.</option><option value="4">4 ур.</option><option value="5">5 ур.</option></select><select id="fSort" class="filter-sel" onchange="filterMarket()"><option value="asc">Дешевле</option><option value="desc">Дороже</option></select></div><div id="marketList"></div>`;
@@ -495,10 +502,21 @@
     function startMineCycle() {
         const now = Math.floor(Date.now() / 1000);
         if ((state.mine.miningEnd || 0) > now) return;
-        const m = state.mine; m.miningEnd = now + 4 * 3600;
-        m.coal += 15 + m.stats.speed * 2; m.gold += 4 + m.stats.energy;
-        if (Math.random() < 0.35 + m.stats.luck * 0.03) m.crystal += 10 + m.stats.luck;
+        state.mine.miningEnd = now + 4 * 3600;
+        state.mine.claimed = false;
         saveGame(); openModal('mine');
+    }
+
+    function claimMineReward() {
+        const now = Math.floor(Date.now() / 1000);
+        const m = state.mine;
+        if ((m.miningEnd || 0) > now || m.claimed) return;
+        const addCoal = 25 + m.stats.speed * 5 + Math.floor(Math.random() * 15);
+        const addGold = 600 + m.stats.energy * 120 + Math.floor(Math.random() * 200);
+        const addCryst = (Math.random() < 0.5 + m.stats.luck * 0.025) ? (60 + m.stats.luck * 15) : 0;
+        m.coal += addCoal; m.gold += addGold; m.crystal += addCryst; m.claimed = true;
+        saveGame(); showToast(`Добыто: +${addGold} 🥇, +${addCoal} 🪨${addCryst ? `, +${addCryst} 💎` : ''}!`);
+        openModal('mine');
     }
     function openMineDialog(mode) {
         const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
