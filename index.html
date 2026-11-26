@@ -59,35 +59,50 @@
         .plot.locked { background: rgba(65,130,50,0.5); border: 2px dashed #9be37d; }
         .plot-icon { font-size: 24px; }
         .plot-timer { position: absolute; bottom: 2px; background: rgba(0,0,0,0.8); border-radius: 6px; padding: 1px 4px; font-size: 9px; font-weight: bold; }
-        .side-actions { display: flex; flex-direction: column; gap: 14px; align-items: center; padding-top: 4px; }
-        .side-row-top { display: flex; gap: 10px; }
-        .side-btn { display: flex; flex-direction: column; align-items: center; cursor: pointer; font-size: 11px; font-weight: bold; text-shadow: 0 2px 3px rgba(0,0,0,0.7); }
-        .side-btn span { font-size: 30px; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
+        .side-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; padding-top: 2px; }
+        .side-row-top { display: flex; gap: 8px; }
+        .side-btn { display: flex; flex-direction: column; align-items: center; cursor: pointer; font-size: 10px; font-weight: bold; text-shadow: 0 2px 3px rgba(0,0,0,0.7); }
+        .side-btn span { font-size: 28px; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4)); }
         .bottom-nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 10px 10px 14px; background: rgba(18,35,15,0.92); border-top: 2px solid #589e3c; }
         .nav-item { background: #e8cfa6; border: 2px solid #8c5828; border-radius: 12px; padding: 6px 2px; text-align: center; color: #4a2c11; font-size: 11px; font-weight: bold; cursor: pointer; }
         .nav-item span { display: block; font-size: 20px; margin-bottom: 2px; }
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.72); display: none; justify-content: center; align-items: center; z-index: 100; padding: 16px; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.72); display: none; justify-content: center; align-items: center; z-index: 100; padding: 14px; }
         .modal-overlay.active { display: flex; }
-        .modal-box { width: 100%; max-width: 390px; max-height: 84vh; background: #c99663; border: 4px solid #75461d; border-radius: 24px; padding: 16px; color: #4a280a; position: relative; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+        .modal-box { width: 100%; max-width: 390px; max-height: 85vh; background: #c99663; border: 4px solid #75461d; border-radius: 24px; padding: 14px; color: #4a280a; position: relative; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
         .modal-box.mine-theme { background: #2d3846; border-color: #54657a; color: #fff; }
-        .modal-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: #f2dfc4; border: 2px solid #8c5828; font-weight: bold; font-size: 16px; color: #5c330e; cursor: pointer; }
-        .modal-title { text-align: center; font-size: 22px; font-weight: 900; margin: 0 0 10px; }
+        .modal-box.pond-theme { background: linear-gradient(180deg, #2b6cb0 0%, #1e4e8c 100%); border-color: #63b3ed; color: #fff; }
+        .modal-close { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; background: #f2dfc4; border: 2px solid #8c5828; font-weight: bold; font-size: 16px; color: #5c330e; cursor: pointer; }
+        .modal-title { text-align: center; font-size: 21px; font-weight: 900; margin: 0 0 10px; }
         .tabs-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
-        .tab-btn { background: #f2dfc4; border: 2px solid #9c6635; border-radius: 16px; padding: 6px 14px; font-weight: bold; color: #5c330e; cursor: pointer; font-size: 13px; }
+        .tab-btn { background: #f2dfc4; border: 2px solid #9c6635; border-radius: 16px; padding: 6px 12px; font-weight: bold; color: #5c330e; cursor: pointer; font-size: 12px; }
         .tab-btn.active { background: #75461d; color: #fff; }
         .modal-scroll { overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; }
-        .card-item { background: #a87344; border: 2px solid #75461d; border-radius: 16px; padding: 12px; color: #fff; }
-        .card-ads { background: linear-gradient(180deg, #52b83e 0%, #378a27 100%); border: 2px solid #1f5c14; border-radius: 16px; padding: 12px; color: #fff; }
-        .card-btn { width: 100%; margin-top: 8px; padding: 8px; background: #f2dfc4; border: 2px solid #75461d; border-radius: 12px; color: #4a280a; font-weight: bold; font-size: 14px; cursor: pointer; }
-        .card-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .btn-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
-        .filter-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+        .card-item { background: #a87344; border: 2px solid #75461d; border-radius: 16px; padding: 11px; color: #fff; font-size: 13px; }
+        .card-ads { background: linear-gradient(180deg, #52b83e 0%, #378a27 100%); border: 2px solid #1f5c14; border-radius: 16px; padding: 11px; color: #fff; font-size: 13px; }
+        .card-btn { width: 100%; margin-top: 7px; padding: 8px; background: #f2dfc4; border: 2px solid #75461d; border-radius: 12px; color: #4a280a; font-weight: bold; font-size: 13px; cursor: pointer; }
+        .card-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+        .btn-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 7px; }
+        .filter-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
         .filter-sel { background: #f2dfc4; border: 2px solid #75461d; border-radius: 12px; padding: 6px 4px; font-weight: bold; color: #4a280a; font-size: 12px; }
-        .pass-row { display: grid; grid-template-columns: 1fr 38px 1fr; gap: 6px; align-items: center; background: #e8cfa6; border: 2px solid #8c5828; border-radius: 14px; padding: 6px; text-align: center; font-size: 12px; color: #4a280a; }
-        .pass-lvl { width: 34px; height: 34px; border-radius: 50%; background: #d9a043; border: 2px solid #75461d; display: flex; align-items: center; justify-content: center; font-weight: 900; margin: 0 auto; }
+        .pass-row { display: grid; grid-template-columns: 1fr 38px 1fr; gap: 6px; align-items: center; background: #e8cfa6; border: 2px solid #8c5828; border-radius: 16px; padding: 7px; text-align: center; font-size: 11px; color: #4a280a; }
+        .pass-lvl { width: 34px; height: 34px; border-radius: 50%; background: #d9a043; border: 2px solid #75461d; display: flex; align-items: center; justify-content: center; font-weight: 900; margin: 0 auto; font-size: 13px; }
+        .pass-cell { background: #f7ebd7; border: 1px solid #b58350; border-radius: 10px; padding: 5px 4px; cursor: pointer; }
+        .pass-cell.claimed { opacity: 0.6; background: #cde8c5; }
         .mine-res-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; margin-bottom: 8px; }
-        .mine-pill { background: #1e2630; border: 2px solid #48586b; border-radius: 12px; padding: 6px; font-weight: bold; font-size: 13px; }
-        .toast { position: fixed; top: 75px; left: 50%; transform: translateX(-50%); background: #f2dfc4; color: #4a280a; border: 3px solid #75461d; border-radius: 18px; padding: 10px 24px; font-weight: 900; font-size: 16px; z-index: 200; display: none; box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+        .mine-pill { background: #1e2630; border: 2px solid #48586b; border-radius: 12px; padding: 6px; font-weight: bold; font-size: 12px; }
+        .pond-water { background: radial-gradient(circle at 50% 45%, #4299e1 0%, #2b6cb0 70%, #1a365d 100%); border: 3px solid #90cdf4; border-radius: 16px; padding: 14px; text-align: center; position: relative; min-height: 118px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+        .bobber-wrap { position: relative; width: 46px; height: 46px; display: flex; justify-content: center; align-items: center; }
+        .bobber { font-size: 32px; position: relative; z-index: 2; display: inline-block; }
+        @keyframes bobberSink { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+        .bobber.bite { animation: bobberSink 0.35s ease-in-out infinite; }
+        .ripple { position: absolute; width: 16px; height: 8px; border: 2px solid rgba(255,255,255,0.85); border-radius: 50%; opacity: 0; pointer-events: none; }
+        @keyframes rippleSpread { 0% { width: 14px; height: 7px; opacity: 0.9; } 100% { width: 84px; height: 36px; opacity: 0; } }
+        .bobber-wrap.bite .ripple { animation: rippleSpread 0.9s ease-out infinite; }
+        .bobber-wrap.bite .ripple.r2 { animation-delay: 0.45s; }
+        .fish-gauge { position: relative; height: 26px; background: #1a365d; border: 3px solid #90cdf4; border-radius: 14px; overflow: hidden; margin: 10px 0; width: 100%; }
+        .fish-zone { position: absolute; top: 0; bottom: 0; background: #48bb78; }
+        .fish-pin { position: absolute; top: 0; bottom: 0; width: 6px; background: #f6e05e; box-shadow: 0 0 6px #fff; }
+        .toast { position: fixed; top: 75px; left: 50%; transform: translateX(-50%); background: #f2dfc4; color: #4a280a; border: 3px solid #75461d; border-radius: 18px; padding: 10px 22px; font-weight: 900; font-size: 15px; z-index: 200; display: none; box-shadow: 0 6px 18px rgba(0,0,0,0.45); text-align: center; }
     </style>
 </head>
 <body>
@@ -103,7 +118,7 @@
 <div id="app">
     <div class="top-bar">
         <div class="res-pill">⭐ <span id="uiLevel">1</span> <div class="xp-bar"><div class="xp-fill" id="uiXpBar"></div></div></div>
-        <div class="res-pill">🪙 <span id="uiCoins">200</span></div>
+        <div class="res-pill">🪙 <span id="uiCoins">250</span></div>
         <div class="res-pill">💎 <span id="uiGems">14</span></div>
     </div>
     <div class="profile-row">
@@ -123,6 +138,10 @@
             <div class="side-row-top">
                 <div class="side-btn" onclick="openModal('contests')"><span>🏆</span>Конкурсы</div>
                 <div class="side-btn" onclick="openModal('bonus', 0)"><span>🎁</span>Бонус</div>
+            </div>
+            <div class="side-row-top">
+                <div class="side-btn" onclick="openModal('pond', 0)"><span>🎣</span>Пруд</div>
+                <div class="side-btn" onclick="openModal('compost')"><span>♻️</span>Компост</div>
             </div>
             <div class="side-btn" onclick="openModal('mine')"><span>🪜</span>Шахта</div>
         </div>
@@ -146,13 +165,44 @@
 <script>
     const GAME_CONFIG = {
         crops: {
-            wheat:    { name: 'Пшеница',  icon: '🌾', buyPrice: 50,  sellPrice: 15, yield: 5,  time: 60,  reqLvl: 1,  xp: 5 },
-            corn:     { name: 'Кукуруза', icon: '🌽', buyPrice: 90,  sellPrice: 22, yield: 8,  time: 120, reqLvl: 1,  xp: 10 },
-            mushroom: { name: 'Грибы',    icon: '🍄', buyPrice: 120, sellPrice: 30, yield: 7,  time: 240, reqLvl: 5,  xp: 9 },
-            carrot:   { name: 'Морковь',  icon: '🥕', buyPrice: 150, sellPrice: 38, yield: 10, time: 360, reqLvl: 9,  xp: 13 },
-            melon:    { name: 'Арбуз',    icon: '🍉', buyPrice: 200, sellPrice: 55, yield: 12, time: 600, reqLvl: 15, xp: 16 },
-            banana:   { name: 'Банан',    icon: '🍌', buyPrice: 250, sellPrice: 70, yield: 15, time: 900, reqLvl: 22, xp: 22 }
+            wheat:    { name: 'Пшеница',  icon: '🌾', buyPrice: 50,  sellPrice: 15, yield: 5,  time: 300,  reqLvl: 1,  xp: 15, compPts: 1 },
+            corn:     { name: 'Кукуруза', icon: '🌽', buyPrice: 90,  sellPrice: 22, yield: 8,  time: 600,  reqLvl: 1,  xp: 30, compPts: 2 },
+            mushroom: { name: 'Грибы',    icon: '🍄', buyPrice: 120, sellPrice: 30, yield: 7,  time: 1500, reqLvl: 5,  xp: 55, compPts: 3 },
+            carrot:   { name: 'Морковь',  icon: '🥕', buyPrice: 150, sellPrice: 38, yield: 10, time: 2400, reqLvl: 9,  xp: 80, compPts: 4 },
+            melon:    { name: 'Арбуз',    icon: '🍉', buyPrice: 200, sellPrice: 55, yield: 12, time: 4200, reqLvl: 15, xp: 120, compPts: 6 },
+            banana:   { name: 'Банан',    icon: '🍌', buyPrice: 250, sellPrice: 70, yield: 15, time: 7200, reqLvl: 22, xp: 180, compPts: 9 }
         },
+        trees: [
+            { id: 't1', icon: '🌲', cooldown: 3600 }, { id: 't2', icon: '🌳', cooldown: 5400 },
+            { id: 't3', icon: '🌴', cooldown: 7200 }, { id: 't4', icon: '🌲', cooldown: 10800 },
+            { id: 't5', icon: '🌳', cooldown: 14400 }, { id: 't6', icon: '🎄', cooldown: 21600 }
+        ],
+        rods: [
+            { id: 'bamboo', name: 'Бамбуковая удочка', price: 0,    zone: 24, starBonus: 0,  reqLvl: 1 },
+            { id: 'oak',    name: 'Дубовая удочка',    price: 500,  zone: 32, starBonus: 10, reqLvl: 3 },
+            { id: 'steel',  name: 'Стекловолоконная',  price: 1500, zone: 40, starBonus: 20, reqLvl: 7 },
+            { id: 'gold',   name: 'Золотая удочка',    price: 4000, zone: 48, starBonus: 35, reqLvl: 12 },
+            { id: 'queen',  name: 'Удочка королевы',   price: 9000, zone: 58, starBonus: 50, reqLvl: 18 }
+        ],
+        baits: {
+            bread:    { name: 'Хлебный мякиш',    icon: '🍞', tier: 1, buyPrice: 25,  craftCrop: 'wheat',    craftQty: 2, desc: 'Ловит мусор и обычную рыбу' },
+            cornBait: { name: 'Сладкая кукуруза', icon: '🌽', tier: 2, buyPrice: 65,  craftCrop: 'corn',     craftQty: 2, desc: 'Открывает необычную рыбу' },
+            mushBait: { name: 'Грибной прикорм',  icon: '🍄', tier: 3, buyPrice: 140, craftCrop: 'mushroom', craftQty: 2, desc: 'Привлекает редкую рыбу' },
+            melBait:  { name: 'Арбузная мякоть',  icon: '🍉', tier: 4, buyPrice: 260, craftCrop: 'melon',    craftQty: 1, desc: 'Шанс на эпическую и легендарную!' }
+        },
+        fishes: [
+            { id: 'boot',    name: 'Старый сапог',   rarity: 'Мусор',      tier: 1, icon: '👢', basePrice: 4,   compPts: 1,  weight: 22 },
+            { id: 'bottle',  name: 'Пустая бутылка', rarity: 'Мусор',      tier: 1, icon: '🍾', basePrice: 5,   compPts: 1,  weight: 18 },
+            { id: 'tire',    name: 'Старая шина',    rarity: 'Мусор',      tier: 1, icon: '🛞', basePrice: 8,   compPts: 2,  weight: 12 },
+            { id: 'crucian', name: 'Карась',         rarity: 'Обычная',    tier: 1, icon: '🐟', basePrice: 35,  compPts: 2,  weight: 35 },
+            { id: 'roach',   name: 'Плотва',         rarity: 'Обычная',    tier: 1, icon: '🐠', basePrice: 45,  compPts: 2,  weight: 28 },
+            { id: 'perch',   name: 'Солнечный окунь',rarity: 'Необычная',  tier: 2, icon: '🐡', basePrice: 75,  compPts: 4,  weight: 26 },
+            { id: 'carp',    name: 'Зеркальный карп',rarity: 'Необычная',  tier: 2, icon: '🎏', basePrice: 110, compPts: 5,  weight: 20 },
+            { id: 'pike',    name: 'Щука',           rarity: 'Редкая',     tier: 3, icon: '🦈', basePrice: 185, compPts: 8,  weight: 18 },
+            { id: 'ray',     name: 'Речной скат',    rarity: 'Редкая',     tier: 3, icon: '🛸', basePrice: 240, compPts: 10, weight: 14 },
+            { id: 'sturgeon',name: 'Осётр',          rarity: 'Эпическая',  tier: 4, icon: '🐋', basePrice: 420, compPts: 16, weight: 12 },
+            { id: 'goldfish',name: 'Золотой карп',   rarity: 'Легендарная',tier: 4, icon: '🐉', basePrice: 750, compPts: 25, weight: 6 }
+        ],
         buildings: [
             { id: 'coop',  name: 'Курятник', icon: '🐔', cost: 5000,  income: '+0.075 TON/3ч' },
             { id: 'barn',  name: 'Коровник', icon: '🐮', cost: 10000, income: '+0.15 TON/4ч' },
@@ -164,111 +214,70 @@
             { id: 'm3', type: 'Овца',   icon: '🐑', lvl: 4, income: '+0.30 TON/6ч',  price: 120 }
         ],
         partnerTasks: [
-            { id: 'pt1', title: 'Партнёрский канал #1', desc: 'Подпишись на канал, затем нажми «Проверить».', link: 'https://t.me' + '/serz11_minifarm_bot', coins: 200, gems: 1, xp: 25 },
-            { id: 'pt2', title: 'Партнёрский канал #2', desc: 'Подпишись на канал, затем нажми «Проверить».', link: 'https://t.me' + '/serz11_minifarm_bot', coins: 200, gems: 1, xp: 25 },
-            { id: 'pt3', title: 'Партнёрский канал #3', desc: 'Подпишись на канал, затем нажми «Проверить».', link: 'https://t.me' + '/serz11_minifarm_bot', coins: 300, gems: 2, xp: 25 },
-            { id: 'pt4', title: 'Партнёрский канал #4', desc: 'Слот свободен — ссылку поставим позже.', link: 'https://t.me' + '/serz11_minifarm_bot', coins: 200, gems: 1, xp: 25 },
-            { id: 'pt5', title: 'Партнёрский канал #5', desc: 'Слот свободен — ссылку поставим позже.', link: 'https://t.me' + '/serz11_minifarm_bot', coins: 200, gems: 1, xp: 25 }
+            { id: 'pt1', title: 'КриптоТемка', desc: 'Подпишись на канал, затем нажми «Проверить».', link: 'https://t.me', coins: 200, gems: 1, xp: 25 },
+            { id: 'pt2', title: 'FarmCapitalChannel', desc: 'Подпишись на канал игры.', link: 'https://t.me', coins: 200, gems: 1, xp: 25 }
         ],
-        promoCodes: { 'FARM2026': { coins: 500, gems: 5, xp: 50 } },
+        promoCodes: { 'FARM2026': { coins: 500, gems: 5, xp: 50 }, 'FISH': { coins: 300, gems: 3, xp: 40 } },
         dailyRiddle: { question: 'Что растёт на поле и имеет золотые колосья?', answer: 'пшеница', coins: 200, gems: 1, xp: 25 },
         skipCostGems: 5,
         tonWalletAddress: 'UQA71KYG1Bei...ВашКошелекTON'
     };
-    let loadPct = 0;
-    const loadTimer = setInterval(() => {
-        loadPct += 25;
-        document.getElementById('loadBar').style.width = Math.min(100, loadPct) + '%';
-        if (loadPct >= 100) {
-            clearInterval(loadTimer);
-            setTimeout(() => { const sp = document.getElementById('splash'); sp.style.opacity = '0'; setTimeout(() => sp.style.display = 'none', 400); }, 200);
-        }
-    }, 150);
-
     let tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
     if (window.Telegram?.WebApp) { window.Telegram.WebApp.ready(); window.Telegram.WebApp.expand(); }
     const guestId = localStorage.getItem('fc_guest_id') || (() => { const id = String(Math.floor(100000000 + Math.random() * 900000000)); localStorage.setItem('fc_guest_id', id); return id; })();
     const playerId = tgUser?.id ? String(tgUser.id) : guestId;
-    const SAVE_KEY = 'farmCapitalFull_' + playerId;
+    const SAVE_KEY = 'farmCapitalFullV5_' + playerId;
 
     if (tgUser) {
         document.getElementById('uiUserName').innerText = tgUser.username ? '@' + tgUser.username : tgUser.first_name;
         document.getElementById('uiUserId').innerText = '#' + tgUser.id;
+    } else {
+        document.getElementById('uiUserId').innerText = '#' + playerId;
     }
 
     let saved = JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
-    const todayStr = new Date().toDateString();
-    const isNewDay = saved.lastDay !== todayStr;
-
     let state = {
-        lastDay: todayStr,
-        coins: saved.coins ?? 200, gems: saved.gems ?? 14, level: saved.level ?? 1, xp: saved.xp ?? 55,
-        adsToday: isNewDay ? 50 : (saved.adsToday ?? 50),
-        trees: Array.isArray(saved.trees) && saved.trees.length === 12 ? saved.trees : Array.from({ length: 12 }, () => ({ readyAt: 0 })),
-        mine: {
-            gold: saved.mine?.gold ?? 0,
-            crystal: saved.mine?.crystal ?? 0,
-            coal: saved.mine?.coal ?? 0,
-            miningEnd: saved.mine?.miningEnd ?? 0,
-            claimed: saved.mine?.claimed ?? true,
-            failStreak: saved.mine?.failStreak ?? 0,
-            stats: { speed: saved.mine?.stats?.speed ?? 0, energy: saved.mine?.stats?.energy ?? 0, luck: saved.mine?.stats?.luck ?? 0 }
-        },
-        seeds: saved.seeds ?? { wheat: 2, corn: 0, mushroom: 0, carrot: 0, melon: 0, banana: 0 },
+        coins: saved.coins ?? 250, gems: saved.gems ?? 14, level: saved.level ?? 1, xp: saved.xp ?? 45, adsToday: saved.adsToday ?? 50,
+        seeds: saved.seeds ?? { wheat: 3, corn: 1, mushroom: 0, carrot: 0, melon: 0, banana: 0 },
         harvest: saved.harvest ?? { wheat: 0, corn: 0, mushroom: 0, carrot: 0, melon: 0, banana: 0 },
-        built: saved.built ?? {}, doneTasks: saved.doneTasks ?? {}, usedPromos: saved.usedPromos ?? {},
-        riddleDone: isNewDay ? false : (saved.riddleDone ?? false),
+        treeCd: saved.treeCd ?? { t1: 0, t2: 0, t3: 0, t4: 0, t5: 0, t6: 0 },
+        mine: saved.mine ?? { speedLvl: 0, energyLvl: 0, luckLvl: 0, cdLeft: 7500, gold: 4, crystal: 15, coal: 0 },
+        baits: saved.baits ?? { bread: 3, cornBait: 0, mushBait: 0, melBait: 0 },
+        activeBait: saved.activeBait ?? 'bread',
+        ownedRods: saved.ownedRods ?? ['bamboo'],
+        activeRod: saved.activeRod ?? 'bamboo',
+        fishBag: saved.fishBag ?? [],
+        compostPool: saved.compostPool ?? 0,
+        fertWeak: saved.fertWeak ?? 1, fertStrong: saved.fertStrong ?? 0, fertInstant: saved.fertInstant ?? 0,
+        built: saved.built ?? {}, doneTasks: saved.doneTasks ?? {}, usedPromos: saved.usedPromos ?? {}, riddleDone: saved.riddleDone ?? false,
         plots: saved.plots ?? Array.from({ length: 16 }, (_, i) => ({ unlocked: i < 4, crop: null, timeLeft: 0 }))
     };
     const saveGame = () => localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     const getNextPlotCost = () => (state.plots.filter(p => p.unlocked).length - 3) * 150;
-    function fmtTime24(sec) {
-        const h = String(Math.floor(sec / 3600)).padStart(2, '0');
-        const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
-        const s = String(sec % 60).padStart(2, '0');
-        return `${h}:${m}:${s}`;
+
+    function fmtTime(sec) {
+        const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+        const pad = n => String(n).padStart(2, '0');
+        return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${pad(m)}:${pad(s)}`;
     }
 
-    function getDayResetTimer() {
-        const now = new Date();
-        const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
-        return fmtTime24(Math.max(0, Math.floor((midnight - now) / 1000)));
-    }
-
-    function shakeTree(idx) {
-        const now = Math.floor(Date.now() / 1000);
-        const tree = state.trees[idx];
-        const icon = document.getElementById('treeIcon_' + idx);
-        if (icon) { icon.classList.remove('shake'); void icon.offsetWidth; icon.classList.add('shake'); }
-        if ((tree.readyAt || 0) > now) return showToast('Дерево восстанавливается...');
-
-        tree.readyAt = now + 86400;
-        if (Math.random() < 0.65) {
-            const r = Math.random();
-            let drop = 'wheat';
-            if (r >= 0.92) drop = 'carrot';
-            else if (r >= 0.78) drop = 'mushroom';
-            else if (r >= 0.55) drop = 'corn';
-            state.seeds[drop] = (state.seeds[drop] || 0) + 1;
-            showToast(`🌳 Упало: ${GAME_CONFIG.crops[drop].icon} ${GAME_CONFIG.crops[drop].name}!`);
-        } else {
-            showToast('🌳 Пусто... Восстановится через 24ч');
-        }
-        saveGame(); renderMain();
-    }
-
+    (function runSplash() {
+        let p = 0; const bar = document.getElementById('loadBar'), sp = document.getElementById('splash');
+        const iv = setInterval(() => {
+            p += 25; if (bar) bar.style.width = Math.min(100, p) + '%';
+            if (p >= 100) { clearInterval(iv); setTimeout(() => { if (sp) { sp.style.opacity = '0'; setTimeout(() => sp.remove(), 350); } }, 200); }
+        }, 120);
+    })();
     function renderMain() {
         document.getElementById('uiCoins').innerText = state.coins;
         document.getElementById('uiGems').innerText = state.gems;
         document.getElementById('uiLevel').innerText = state.level;
         document.getElementById('uiXpBar').style.width = Math.min(100, Math.round((state.xp / (state.level * 100)) * 100)) + '%';
 
-        const bRow = document.getElementById('buildingsRow');
-        bRow.innerHTML = '';
+        const bRow = document.getElementById('buildingsRow'); bRow.innerHTML = '';
         GAME_CONFIG.buildings.forEach(b => {
-            const isBuilt = !!state.built[b.id];
-            const div = document.createElement('div');
-            div.className = 'building-slot' + (isBuilt ? ' built breathe' : '');
+            const isBuilt = !!state.built[b.id], div = document.createElement('div');
+            div.className = 'building-slot' + (isBuilt ? ' built' : '');
             div.innerHTML = isBuilt ? `${b.icon} ${b.name}<br><span style="color:#a3ff8f">Построено</span>` : `Построить<br>${b.name.toLowerCase()} (${b.cost / 1000}K)`;
             div.onclick = () => {
                 if (state.built[b.id]) return showToast(`${b.name}: ${b.income}`);
@@ -278,21 +287,17 @@
             bRow.appendChild(div);
         });
 
-        const grove = document.getElementById('treesGrove');
-        const nowSec = Math.floor(Date.now() / 1000);
-        grove.innerHTML = '';
-        state.trees.forEach((t, i) => {
-            const left = Math.max(0, (t.readyAt || 0) - nowSec);
-            const item = document.createElement('div');
-            item.className = 'tree-item' + (left > 0 ? ' used' : '');
-            item.innerHTML = `<span class="tree-emoji ${left === 0 ? 'sway' : ''}" id="treeIcon_${i}">🌳</span>` + (left > 0 ? `<div class="tree-cd">${fmtTime24(left)}</div>` : '');
-            item.onclick = () => shakeTree(i);
-            grove.appendChild(item);
+        const tRow = document.getElementById('treesGrove'); tRow.innerHTML = '';
+        GAME_CONFIG.trees.forEach(t => {
+            const cd = state.treeCd[t.id] || 0, div = document.createElement('div');
+            div.className = 'tree-item' + (cd > 0 ? ' used' : '');
+            div.innerHTML = `<span class="tree-emoji ${cd===0?'sway':''}">${t.icon}</span><div class="tree-cd">${cd > 0 ? fmtTime(cd) : 'Трясти'}</div>`;
+            div.onclick = () => shakeTreeBonus(t, div);
+            tRow.appendChild(div);
         });
-        const grid = document.getElementById('plotsGrid');
-        grid.innerHTML = '';
-        const nextLockedIdx = state.plots.findIndex(p => !p.unlocked);
 
+        const grid = document.getElementById('plotsGrid'); grid.innerHTML = '';
+        const nextLockedIdx = state.plots.findIndex(p => !p.unlocked);
         state.plots.forEach((plot, idx) => {
             const div = document.createElement('div');
             div.className = 'plot' + (plot.unlocked ? '' : ' locked');
@@ -301,107 +306,393 @@
             } else if (!plot.crop) {
                 div.innerHTML = `<div class="plot-icon" style="opacity:0.35">🌱</div>`;
             } else if (plot.timeLeft > 0) {
-                const m = String(Math.floor(plot.timeLeft / 60)).padStart(2, '0'), s = String(plot.timeLeft % 60).padStart(2, '0');
-                div.innerHTML = `<div class="plot-icon sway">🌿</div><div class="plot-timer">${m}:${s}</div>`;
+                div.innerHTML = `<div class="plot-icon">🌿</div><div class="plot-timer">${fmtTime(plot.timeLeft)}</div>`;
             } else {
-                div.innerHTML = `<div class="plot-icon sway">${GAME_CONFIG.crops[plot.crop].icon}</div><div class="plot-timer" style="background:#2d8a22">Собрать</div>`;
+                div.innerHTML = `<div class="plot-icon">${GAME_CONFIG.crops[plot.crop].icon}</div><div class="plot-timer" style="background:#2d8a22">Собрать</div>`;
             }
             div.onclick = () => onPlotClick(idx, nextLockedIdx);
             grid.appendChild(div);
         });
     }
+    function shakeTreeBonus(t, el) {
+        if ((state.treeCd[t.id] || 0) > 0) return showToast(`Дерево отдыхает (${fmtTime(state.treeCd[t.id])})`);
+        el.classList.add('shake');
+        state.treeCd[t.id] = t.cooldown;
+        const rnd = Math.random();
+        if (rnd < 0.45) {
+            const cKeys = Object.keys(GAME_CONFIG.crops);
+            const k = cKeys[Math.floor(Math.random() * Math.min(3, cKeys.length))];
+            state.seeds[k] = (state.seeds[k] || 0) + 1;
+            showToast(`Упало семечко: ${GAME_CONFIG.crops[k].icon} ${GAME_CONFIG.crops[k].name}!`);
+        } else if (rnd < 0.85) {
+            const bonus = 25 + state.level * 5;
+            state.coins += bonus;
+            showToast(`С дерева упало +${bonus} 🪙!`);
+        } else {
+            state.gems += 1;
+            showToast('Редкая находка: +1 💎!');
+        }
+        addXp(10); saveGame(); setTimeout(renderMain, 380);
+    }
 
     function onPlotClick(idx, nextLockedIdx) {
         const plot = state.plots[idx];
         if (!plot.unlocked) { if (idx === nextLockedIdx) openConfirmDialog('buyPlot', idx); return; }
-        if (plot.crop && plot.timeLeft > 0) { openConfirmDialog('skipGrow', idx); return; }
+        if (plot.crop && plot.timeLeft > 0) { openConfirmDialog('growOpts', idx); return; }
         if (plot.crop && plot.timeLeft === 0) {
             const c = GAME_CONFIG.crops[plot.crop];
             state.harvest[plot.crop] = (state.harvest[plot.crop] || 0) + c.yield;
             addXp(c.xp); plot.crop = null; saveGame(); renderMain(); return;
         }
-        const available = Object.keys(state.seeds).filter(k => (state.seeds[k] || 0) > 0);
-        if (!available.length) return openModal('shop', 0);
+        const availSeeds = Object.keys(state.seeds).filter(k => state.seeds[k] > 0);
+        if (!availSeeds.length) return openModal('shop', 0);
+        if (availSeeds.length === 1) { plantSeedOnPlot(idx, availSeeds[0]); return; }
         openSeedPicker(idx);
     }
 
-    function openSeedPicker(plotIdx) {
-        document.getElementById('modalBox').classList.remove('mine-theme');
-        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
-        tabs.innerHTML = ''; body.innerHTML = ''; title.innerText = 'Выберите семена';
+    function openSeedPicker(idx) {
+        const box = document.getElementById('modalBox'), title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
+        box.classList.remove('pond-theme', 'mine-theme'); tabs.innerHTML = ''; body.innerHTML = '';
+        title.innerText = 'Выберите семена';
         document.getElementById('modalOverlay').classList.add('active');
         Object.entries(GAME_CONFIG.crops).forEach(([k, c]) => {
             const cnt = state.seeds[k] || 0;
-            if (cnt > 0) body.innerHTML += `<div class="card-item"><b>${c.icon} ${c.name}</b> (В наличии: ${cnt} шт. | Рост: ${c.time}с)<button class="card-btn" onclick="plantOnPlot(${plotIdx}, '${k}')">Посадить</button></div>`;
+            if (cnt > 0) body.innerHTML += `<div class="card-item"><b>${c.icon} ${c.name}</b> (${fmtTime(c.time)} | Урожай: ${c.yield})<br>В наличии: <b>${cnt} шт.</b><button class="card-btn" onclick="plantSeedOnPlot(${idx},'${k}')">Посадить</button></div>`;
         });
     }
-    function plantOnPlot(plotIdx, k) { if ((state.seeds[k] || 0) <= 0) return; state.seeds[k]--; state.plots[plotIdx].crop = k; state.plots[plotIdx].timeLeft = GAME_CONFIG.crops[k].time; saveGame(); renderMain(); closeModal(); }
+    function plantSeedOnPlot(idx, k) {
+        if ((state.seeds[k] || 0) <= 0) return;
+        state.seeds[k]--; state.plots[idx].crop = k; state.plots[idx].timeLeft = GAME_CONFIG.crops[k].time;
+        saveGame(); renderMain(); closeModal();
+    }
+
     function addXp(amount) { state.xp += amount; while (state.xp >= state.level * 100) { state.xp -= state.level * 100; state.level++; } }
-    function showToast(txt) { const t = document.getElementById('toastBox'); t.innerText = txt; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1800); }
+    function showToast(txt) { const t = document.getElementById('toastBox'); t.innerText = txt; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1900); }
 
     function openConfirmDialog(kind, idx) {
-        document.getElementById('modalBox').classList.remove('mine-theme');
-        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
-        tabs.innerHTML = ''; document.getElementById('modalOverlay').classList.add('active');
+        const box = document.getElementById('modalBox'), title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
+        box.classList.remove('pond-theme', 'mine-theme'); tabs.innerHTML = '';
+        document.getElementById('modalOverlay').classList.add('active');
         if (kind === 'buyPlot') {
             const cost = getNextPlotCost(); title.innerText = 'Покупка грядки';
             body.innerHTML = `<div class="card-item" style="text-align:center;">Стоимость: <b>${cost} 🪙</b><div class="btn-row-2"><button class="card-btn" style="background:#52b83e;color:#fff;" onclick="confirmBuyPlot(${idx},${cost})">Купить</button><button class="card-btn" onclick="closeModal()">Отмена</button></div></div>`;
         } else {
-            title.innerText = `Пропустить рост за ${GAME_CONFIG.skipCostGems} 💎?`;
-            body.innerHTML = `<div class="card-item" style="text-align:center;"><div class="btn-row-2"><button class="card-btn" style="background:#52b83e;color:#fff;" onclick="confirmSkipGrow(${idx})">Да</button><button class="card-btn" onclick="closeModal()">Нет</button></div></div>`;
+            const p = state.plots[idx], c = GAME_CONFIG.crops[p.crop];
+            title.innerText = `${c.icon} ${c.name} (${fmtTime(p.timeLeft)})`;
+            body.innerHTML = `
+                <div class="card-item"><b>🌱 Простой компост (-20% времени)</b><br>В наличии: ${state.fertWeak} шт.<button class="card-btn" ${state.fertWeak<=0?'disabled':''} onclick="useFert(${idx},'weak')">Применить (-20%)</button></div>
+                <div class="card-item"><b>🧪 Рыбный концентрат (-50% времени)</b><br>В наличии: ${state.fertStrong} шт.<button class="card-btn" ${state.fertStrong<=0?'disabled':''} onclick="useFert(${idx},'strong')">Применить (-50%)</button></div>
+                <div class="card-item"><b>✨ Эликсир роста (Мгновенно)</b><br>В наличии: ${state.fertInstant} шт.<button class="card-btn" ${state.fertInstant<=0?'disabled':''} onclick="useFert(${idx},'instant')">Созреть сразу</button></div>
+                <div class="card-item"><b>💎 Ускорить за ${GAME_CONFIG.skipCostGems} гемов</b><button class="card-btn" onclick="confirmSkipGrow(${idx})">Ускорить за ${GAME_CONFIG.skipCostGems} 💎</button></div>`;
         }
+    }
+    function useFert(idx, mode) {
+        if (mode === 'weak' && state.fertWeak > 0) { state.fertWeak--; state.plots[idx].timeLeft = Math.floor(state.plots[idx].timeLeft * 0.8); showToast('Время сокращено на 20%!'); }
+        else if (mode === 'strong' && state.fertStrong > 0) { state.fertStrong--; state.plots[idx].timeLeft = Math.floor(state.plots[idx].timeLeft * 0.5); showToast('Время сокращено вдвое!'); }
+        else if (mode === 'instant' && state.fertInstant > 0) { state.fertInstant--; state.plots[idx].timeLeft = 0; showToast('Урожай мгновенно созрел!'); }
+        saveGame(); renderMain(); closeModal();
     }
     function confirmBuyPlot(idx, cost) { if (state.coins < cost) { closeModal(); return showToast(`Нужно ${cost} 🪙`); } state.coins -= cost; state.plots[idx].unlocked = true; saveGame(); renderMain(); closeModal(); }
     function confirmSkipGrow(idx) { if (state.gems < GAME_CONFIG.skipCostGems) { closeModal(); return showToast(`Нужно ${GAME_CONFIG.skipCostGems} 💎`); } state.gems -= GAME_CONFIG.skipCostGems; state.plots[idx].timeLeft = 0; saveGame(); renderMain(); closeModal(); }
-    function openModal(type, subTab = 0) {
-        const box = document.getElementById('modalBox');
-        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
-        box.classList.toggle('mine-theme', type === 'mine');
-        tabs.innerHTML = ''; body.innerHTML = '';
-        document.getElementById('modalOverlay').classList.add('active');
+    let fishPinPos = 0, fishPinDir = 1, fishTimer = null, biteTimeout = null;
+    function stopFishLoop() {
+        if (fishTimer) { clearInterval(fishTimer); fishTimer = null; }
+        if (biteTimeout) { clearTimeout(biteTimeout); biteTimeout = null; }
+    }
 
-        if (type === 'mine') {
-            title.innerText = 'Шахта';
-            const m = state.mine;
-            const now = Math.floor(Date.now() / 1000);
-            const left = Math.max(0, (m.miningEnd || 0) - now);
-            const canClaim = left === 0 && m.claimed === false;
+    function renderPondModal(subTab, title, tabs, body) {
+        const box = document.getElementById('modalBox');
+        box.classList.remove('mine-theme'); box.classList.add('pond-theme');
+        title.innerText = '🎣 Пруд и Лавка';
+        tabs.innerHTML = `
+            <button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('pond',0)">Ловить</button>
+            <button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('pond',1)">Садок (${state.fishBag.length})</button>
+            <button class="tab-btn ${subTab===2?'active':''}" onclick="openModal('pond',2)">Наживка</button>
+            <button class="tab-btn ${subTab===3?'active':''}" onclick="openModal('pond',3)">Удочки</button>`;
+
+        if (subTab === 0) {
+            const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || GAME_CONFIG.rods;
+            const bait = GAME_CONFIG.baits[state.activeBait] || GAME_CONFIG.baits.bread;
+            const bCnt = state.baits[state.activeBait] || 0;
             body.innerHTML = `
-                <div class="mine-res-row"><div class="mine-pill">🥇 ${m.gold}</div><div class="mine-pill">💎 ${m.crystal}</div><div class="mine-pill">🪨 ${m.coal}</div></div>
-                <div class="mine-res-row" style="grid-template-columns:1fr 1fr;"><div class="mine-pill">🪙 ${state.coins}</div><div class="mine-pill">💎 ${state.gems}</div></div>
-                <div class="card-item" style="background:#3c4a5c;border-color:#647891;text-align:center;">
-                    <div id="pickAnim" class="${left > 0 ? 'swing' : ''}" style="font-size:48px;margin:4px 0;">⛏️</div>
-                    <div style="font-size:20px;font-weight:900;margin-bottom:8px;">${left > 0 ? fmtTime24(left) : (canClaim ? 'Добыча завершена!' : 'Готово к добыче')}</div>
-                    <button class="card-btn" style="${canClaim ? 'background:#52b83e;color:#fff;' : ''}" ${left > 0 ? 'disabled' : ''} onclick="${canClaim ? 'claimMineReward()' : 'startMineCycle()'}">${left > 0 ? 'Добыча...' : (canClaim ? '🎁 Забрать добычу' : '⛏️ Начать добычу (4ч)')}</button>
-                </div>
-                <div class="card-item" style="background:#3c4a5c;border-color:#647891;">
-                    <div style="margin-bottom:4px;">💪 Скорость: <b>${m.stats.speed}/20</b></div>
-                    <div style="margin-bottom:4px;">⚡ Энергия: <b>${m.stats.energy}/20</b></div>
-                    <div style="margin-bottom:8px;">🍀 Удача: <b>${m.stats.luck}/20</b></div>
-                    <button class="card-btn" onclick="openMineDialog('upgrade')">Улучшить</button>
-                </div>
-                <div class="btn-row-2"><button class="card-btn" style="margin:0;" onclick="openMineDialog('gold')">Золото ➔ Монеты</button><button class="card-btn" style="margin:0;" onclick="openMineDialog('crystal')">Кристаллы ➔ Гемы</button></div>`;
-        } else if (type === 'contests') {
-            title.innerText = 'Конкурсы';
-            body.innerHTML = `
-                <div class="card-item" style="text-align:center;"><b>Конкурс пополнений</b><br>Кто больше всех пополнит TON — заберёт призы!<br><br><div style="background:#75461d;padding:6px;border-radius:10px;font-weight:bold;">⏳ 12 дн 00:56:32</div></div>
-                <div class="card-item">🥇 1 место: 🐮 Корова 4 ур. + 1 000 💎 + 10 000 🪙</div>
-                <div class="card-item">🥈 2 место: 🐔 Курица 4 ур. + 400 💎 + 5 000 🪙</div>
-                <div class="card-item">🥉 3 место: 400 💎 + 5 000 🪙</div>
-                <div class="card-item">4 место: 300 💎 + 4 000 🪙 | 5 место: 250 💎 + 3 000 🪙</div>
-                <div class="card-item" style="text-align:center;font-size:12px;">Ты пока вне рейтинга — пополни TON и займи место!</div>`;
+                <div class="card-item" style="background:#1e4e8c;border-color:#63b3ed;text-align:center;">
+                    <div>Удочка: <b>${rod.name}</b> | Наживка: <b>${bait.icon} ${bait.name}</b> (${bCnt} шт.)</div>
+                    <div class="pond-water" id="pondWater" style="margin-top:8px;">
+                        <div class="bobber-wrap" id="bobberWrap">
+                            <div class="ripple"></div>
+                            <div class="ripple r2"></div>
+                            <div class="bobber" id="bobberIcon">🌊</div>
+                        </div>
+                        <div id="pondStatus" style="font-weight:bold;margin-top:4px;">Нажмите «Забросить удочку»</div>
+                        <div id="gaugeWrap" style="width:100%;"></div>
+                    </div>
+                    <button id="castBtn" class="card-btn" style="background:#48bb78;color:#fff;font-size:15px;" ${bCnt<=0?'disabled':''} onclick="startCast()">🎣 Забросить удочку</button>
+                </div>`;
         } else {
-            openModalMid(type, subTab, title, tabs, body);
+            renderPondTabs(subTab, body);
         }
     }
-    function openModalMid(type, subTab, title, tabs, body) {
+
+    function startCast() {
+        if ((state.baits[state.activeBait] || 0) <= 0) return showToast('Нет наживки!');
+        const btn = document.getElementById('castBtn'), bob = document.getElementById('bobberIcon'), wrap = document.getElementById('bobberWrap'), st = document.getElementById('pondStatus');
+        if (btn) btn.disabled = true;
+        if (bob) { bob.innerText = '🎏'; bob.classList.remove('bite'); }
+        if (wrap) wrap.classList.remove('bite');
+        if (st) st.innerText = 'Поплавок на воде... Ждём поклёвку...';
+        stopFishLoop();
+        biteTimeout = setTimeout(() => {
+            if (bob) bob.classList.add('bite');
+            if (wrap) wrap.classList.add('bite');
+            if (st) st.innerText = '❗ КЛЮЁТ! Жми подсечку!';
+            showHookGauge();
+        }, 1200 + Math.random() * 1400);
+    }
+
+     function showHookGauge() {
+        const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || { zone: 28, starBonus: 0 };
+        const zWidth = rod.zone || 28;
+        const zStart = Math.round(50 - zWidth / 2);
+        const wrap = document.getElementById('gaugeWrap'), btn = document.getElementById('castBtn');
+        if (!wrap) return;
+        wrap.innerHTML = `<div class="fish-gauge"><div class="fish-zone" style="left:${zStart}%;width:${zWidth}%;"></div><div class="fish-pin" id="fishPin" style="left:0%;"></div></div>`;
+        if (btn) { btn.disabled = false; btn.style.background = '#ecc94b'; btn.style.color = '#4a280a'; btn.innerText = '⚡ ПОДСЕЧЬ!'; btn.onclick = () => catchFish(zStart, zWidth); }
+        fishPinPos = 0; fishPinDir = 1;
+        fishTimer = setInterval(() => {
+            fishPinPos += fishPinDir * 2.5;
+            if (fishPinPos >= 96) { fishPinPos = 96; fishPinDir = -1; }
+            if (fishPinPos <= 0) { fishPinPos = 0; fishPinDir = 1; }
+            const el = document.getElementById('fishPin');
+            if (el) el.style.left = fishPinPos + '%';
+        }, 30);
+    }
+
+    function renderPondTabs(subTab, body) {
+        if (subTab === 1) {
+            let totalSell = 0;
+            state.fishBag.forEach(f => totalSell += f.price);
+            body.innerHTML = `<div class="card-item" style="background:#1e4e8c;border-color:#63b3ed;"><button class="card-btn" style="background:#ffe299;margin:0;" ${!state.fishBag.length?'disabled':''} onclick="sellAllFish()">💰 Продать весь улов (${totalSell} 🪙)</button></div>`;
+            if (!state.fishBag.length) body.innerHTML += `<div style="text-align:center;padding:12px;">Садок пуст — закиньте удочку!</div>`;
+            state.fishBag.forEach((f, i) => {
+                body.innerHTML += `<div class="card-item" style="background:#235796;border-color:#63b3ed;"><b>${f.icon} ${f.name}</b> ${'⭐'.repeat(f.stars)} (${f.rarity})<br>Цена: ${f.price} 🪙 | Очки компоста: +${f.compPts}<button class="card-btn" onclick="sellOneFish(${i})">Продать за ${f.price} 🪙</button></div>`;
+            });
+        } else if (subTab === 2) {
+            Object.entries(GAME_CONFIG.baits).forEach(([k, b]) => {
+                const cnt = state.baits[k] || 0, cropObj = GAME_CONFIG.crops[b.craftCrop], hasCrop = state.harvest[b.craftCrop] || 0, isAct = state.activeBait === k;
+                body.innerHTML += `<div class="card-item" style="background:#235796;border-color:#63b3ed;">
+                    <b>${b.icon} ${b.name}</b> — В сумке: <b>${cnt} шт.</b> ${isAct?'✅':''}<br><small>${b.desc}</small>
+                    <div class="btn-row-2">
+                        <button class="card-btn" onclick="buyBait('${k}')">Купить (${b.buyPrice} 🪙)</button>
+                        <button class="card-btn" ${hasCrop<b.craftQty?'disabled':''} onclick="craftBait('${k}')">Крафт (${b.craftQty} ${cropObj.icon})</button>
+                    </div>
+                    <button class="card-btn" style="background:#bee3f8;" ${isAct?'disabled':''} onclick="selectBait('${k}')">${isAct?'Выбрана':'Выбрать наживку'}</button>
+                </div>`;
+            });
+        } else {
+            GAME_CONFIG.rods.forEach(r => {
+                const owned = state.ownedRods.includes(r.id), isAct = state.activeRod === r.id, locked = state.level < r.reqLvl;
+                body.innerHTML += `<div class="card-item" style="background:#235796;border-color:#63b3ed;">
+                    <b>🎣 ${r.name}</b> ${isAct?'✅':''}<br>Зона подсечки: ${r.zone}% | Бонус звёзд: +${r.starBonus}%
+                    <button class="card-btn" ${!owned && locked ? 'disabled' : ''} onclick="handleRod('${r.id}')">${isAct ? 'Используется' : (owned ? 'Взять в руки' : (locked ? 'С уровня ' + r.reqLvl : 'Купить за ' + r.price + ' 🪙'))}</button>
+                </div>`;
+            });
+        }
+    }
+
+    function catchFish(zStart, zWidth) {
+        const pinEl = document.getElementById('fishPin');
+        const zoneEl = document.querySelector('.fish-zone');
+        let hit = false;
+        let perfect = false;
+        if (pinEl && zoneEl) {
+            const pRect = pinEl.getBoundingClientRect();
+            const zRect = zoneEl.getBoundingClientRect();
+            const pCenter = pRect.left + pRect.width / 2;
+            hit = pCenter >= (zRect.left - 6) && pCenter <= (zRect.right + 6);
+            const zCenter = zRect.left + zRect.width / 2;
+            perfect = Math.abs(pCenter - zCenter) <= (zRect.width * 0.25);
+        }
+        stopFishLoop();
+        if ((state.baits[state.activeBait] || 0) <= 0) return showToast('Закончилась наживка!');
+        state.baits[state.activeBait]--;
+        if (!hit) {
+            saveGame();
+            showToast('💨 Сорвалась! Попадите в зелёную зону');
+            openModal('pond', 0);
+            return;
+        }
+        const bait = GAME_CONFIG.baits[state.activeBait];
+        const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || { zone: 28, starBonus: 0 };
+
+        let pool = GAME_CONFIG.fishes.filter(f => f.tier <= bait.tier).map(f => {
+            let w = f.weight;
+            if (f.rarity === 'Мусор') w = Math.max(2, Math.round(w / bait.tier));
+            if (f.tier === bait.tier && bait.tier > 1) w += 18;
+            return { ...f, w };
+        });
+        const sumW = pool.reduce((a, b) => a + b.w, 0);
+        let rnd = Math.random() * sumW, chosen = pool.at(0);
+        for (const item of pool) { if (rnd < item.w) { chosen = item; break; } rnd -= item.w; }
+
+        let stars = 1;
+        if (chosen.rarity !== 'Мусор') {
+            const starRoll = Math.random() * 100 + rod.starBonus + (perfect ? 25 : 0);
+            if (starRoll > 125) stars = 5; else if (starRoll > 100) stars = 4; else if (starRoll > 75) stars = 3; else if (starRoll > 45) stars = 2;
+        }
+        const finalPrice = Math.round(chosen.basePrice * (1 + (stars - 1) * 0.25));
+        state.fishBag.push({ id: chosen.id, name: chosen.name, icon: chosen.icon, rarity: chosen.rarity, stars, price: finalPrice, compPts: chosen.compPts * stars });
+        addXp(perfect ? 18 : 8);
+        saveGame(); renderMain();
+        showToast(`${perfect ? '🎯 Идеально! ' : ''}${chosen.icon} ${chosen.name}${chosen.rarity!=='Мусор'?' ('+'⭐'.repeat(stars)+')':''}`);
+        openModal('pond', 0);
+    }
+
+
+    function sellOneFish(i) { const f = state.fishBag[i]; if (!f) return; state.coins += f.price; state.fishBag.splice(i, 1); saveGame(); renderMain(); openModal('pond', 1); }
+    function sellAllFish() { let s = 0; state.fishBag.forEach(f => s += f.price); if (!s) return; state.coins += s; state.fishBag = []; saveGame(); renderMain(); openModal('pond', 1); showToast(`Продано на ${s} 🪙!`); }
+    function buyBait(k) { const b = GAME_CONFIG.baits[k]; if (state.coins < b.buyPrice) return showToast('Недостаточно монет!'); state.coins -= b.buyPrice; state.baits[k] = (state.baits[k] || 0) + 1; saveGame(); renderMain(); openModal('pond', 2); }
+    function craftBait(k) { const b = GAME_CONFIG.baits[k]; if ((state.harvest[b.craftCrop] || 0) < b.craftQty) return showToast('Не хватает урожая на складе!'); state.harvest[b.craftCrop] -= b.craftQty; state.baits[k] = (state.baits[k] || 0) + 2; saveGame(); openModal('pond', 2); showToast(`Скрафчено 2 шт. ${b.icon}!`); }
+    function selectBait(k) { state.activeBait = k; saveGame(); openModal('pond', 2); }
+    function handleRod(id) {
+        const r = GAME_CONFIG.rods.find(x => x.id === id);
+        if (!state.ownedRods.includes(id)) {
+            if (state.coins < r.price) return showToast(`Нужно ${r.price} 🪙`);
+            state.coins -= r.price; state.ownedRods.push(id);
+        }
+        state.activeRod = id; saveGame(); renderMain(); openModal('pond', 3);
+    }
+    function renderCompostModal(title, body) {
+        title.innerText = '♻️ Компостная яма';
+        let fishPts = 0;
+        state.fishBag.forEach(f => fishPts += f.compPts);
+        body.innerHTML = `
+            <div class="card-item" style="text-align:center;">
+                <div>Очков компоста в яме: <b style="font-size:16px;color:#ffe26a;">${state.compostPool} pts</b></div>
+                <div style="font-size:11px;margin-top:4px;">Удобрения: 🌱 ${state.fertWeak} | 🧪 ${state.fertStrong} | ✨ ${state.fertInstant}</div>
+                <button class="card-btn" style="background:#9ae6b4;" ${fishPts<=0?'disabled':''} onclick="loadFishToCompost()">Загрузить весь садок (+${fishPts} pts)</button>
+            </div>
+            <div class="card-item">
+                <b>Создать удобрение из очков компоста:</b>
+                <button class="card-btn" ${state.compostPool<4?'disabled':''} onclick="makeFert('weak',4)">🌱 Простой компост (-20% времени) — 4 pts</button>
+                <button class="card-btn" ${state.compostPool<12?'disabled':''} onclick="makeFert('strong',12)">🧪 Рыбный концентрат (-50% времени) — 12 pts</button>
+                <button class="card-btn" ${state.compostPool<30?'disabled':''} onclick="makeFert('instant',30)">✨ Эликсир роста (Мгновенно) — 30 pts</button>
+            </div>
+            <div class="card-item"><b>Добавить урожай со склада в компост:</b><div id="compCropsList"></div></div>`;
+        const cList = document.getElementById('compCropsList');
+        Object.entries(GAME_CONFIG.crops).forEach(([k, c]) => {
+            const cnt = state.harvest[k] || 0;
+            if (cnt > 0 && cList) cList.innerHTML += `<button class="card-btn" onclick="loadCropToCompost('${k}')">${c.icon} ${c.name} (в наличии: ${cnt}) → +${c.compPts} pts за 1 шт.</button>`;
+        });
+    }
+
+    function loadFishToCompost() { let pts = 0; state.fishBag.forEach(f => pts += f.compPts); if (!pts) return; state.compostPool += pts; state.fishBag = []; saveGame(); openModal('compost'); showToast(`В компост добавлено +${pts} pts!`); }
+    function loadCropToCompost(k) { if ((state.harvest[k] || 0) <= 0) return; const pts = GAME_CONFIG.crops[k].compPts; state.harvest[k]--; state.compostPool += pts; saveGame(); openModal('compost'); }
+    function makeFert(type, cost) {
+        if (state.compostPool < cost) return showToast(`Нужно ${cost} pts!`);
+        state.compostPool -= cost;
+        if (type === 'weak') state.fertWeak++; else if (type === 'strong') state.fertStrong++; else if (type === 'instant') state.fertInstant++;
+        saveGame(); openModal('compost'); showToast('Удобрение готово!');
+    }
+    function renderMineModal(title, body) {
+        const box = document.getElementById('modalBox');
+        box.classList.remove('pond-theme'); box.classList.add('mine-theme');
+        title.innerText = 'Шахта';
+        const m = state.mine;
+        if (!m.cdLeft || m.cdLeft < 0) m.cdLeft = 7500;
+        body.innerHTML = `
+            <div class="mine-res-row">
+                <div class="mine-pill">🥇 ${m.gold}</div>
+                <div class="mine-pill">💎 ${m.crystal}</div>
+                <div class="mine-pill">🪨 ${m.coal}</div>
+            </div>
+            <div class="mine-res-row" style="grid-template-columns:1fr 1fr;">
+                <div class="mine-pill">🪙 ${state.coins}</div>
+                <div class="mine-pill">💎 ${state.gems}</div>
+            </div>
+            <div class="card-item" style="background:#1e2630;border-color:#48586b;text-align:center;">
+                <div id="pickIcon" class="swing" style="font-size:44px;margin:4px 0;">⛏️</div>
+                <div style="font-size:18px;font-weight:900;margin:4px 0;" class="mine-cd">${fmtTime(m.cdLeft)}</div>
+                <button class="card-btn" disabled style="background:#8c7d6b;color:#3b332b;">Добыча...</button>
+                <div style="text-align:left;margin-top:8px;font-size:13px;line-height:1.7;">
+                    <div>⚡ Скорость: <b>${m.speedLvl}/20</b></div>
+                    <div>🔋 Энергия: <b>${m.energyLvl}/20</b></div>
+                    <div>🍀 Удача: <b>${m.luckLvl}/20</b></div>
+                </div>
+                <button class="card-btn" style="background:#e8cfa6;" onclick="openMineUpgMenu()">Улучшить</button>
+            </div>
+            <div class="btn-row-2">
+                <button class="card-btn" style="background:#f2dfc4;margin:0;" onclick="openMineExchange('gold')">Золото →<br>Монеты</button>
+                <button class="card-btn" style="background:#f2dfc4;margin:0;" onclick="openMineExchange('crystal')">Кристаллы →<br>Гемы</button>
+            </div>`;
+    }
+
+    function openMineUpgMenu() {
+        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
+        tabs.innerHTML = ''; title.innerText = 'Улучшить шахту';
+        const m = state.mine;
+        const cSpd = (m.speedLvl + 1) * 300, cEng = (m.energyLvl + 1) * 400, cLck = (m.luckLvl + 1) * 500;
+        body.innerHTML = `
+            <div class="card-item" style="background:#1e2630;border-color:#48586b;"><b>⚡ Скорость (${m.speedLvl}/20)</b><br><small>Ускоряет цикл добычи</small><button class="card-btn" ${m.speedLvl>=20?'disabled':''} onclick="upgMineStat('speed',${cSpd})">Улучшить (${cSpd} 🪙)</button></div>
+            <div class="card-item" style="background:#1e2630;border-color:#48586b;"><b>🔋 Энергия (${m.energyLvl}/20)</b><br><small>Увеличивает объём добычи</small><button class="card-btn" ${m.energyLvl>=20?'disabled':''} onclick="upgMineStat('energy',${cEng})">Улучшить (${cEng} 🪙)</button></div>
+            <div class="card-item" style="background:#1e2630;border-color:#48586b;"><b>🍀 Удача (${m.luckLvl}/20)</b><br><small>Повышает шанс на кристаллы и золото</small><button class="card-btn" ${m.luckLvl>=20?'disabled':''} onclick="upgMineStat('luck',${cLck})">Улучшить (${cLck} 🪙)</button></div>
+            <button class="card-btn" onclick="openModal('mine')">Назад в шахту</button>`;
+    }
+    function upgMineStat(stat, cost) {
+        const m = state.mine;
+        if (state.coins < cost) return showToast(`Нужно ${cost} 🪙`);
+        if (stat === 'speed' && m.speedLvl < 20) { state.coins -= cost; m.speedLvl++; m.cdLeft = Math.max(900, m.cdLeft - 300); }
+        else if (stat === 'energy' && m.energyLvl < 20) { state.coins -= cost; m.energyLvl++; }
+        else if (stat === 'luck' && m.luckLvl < 20) { state.coins -= cost; m.luckLvl++; }
+        saveGame(); renderMain(); openMineUpgMenu(); showToast('Уровень характеристики повышен!');
+    }
+
+    function openMineExchange(kind) {
+        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
+        tabs.innerHTML = '';
+        if (kind === 'gold') {
+            title.innerText = 'Золото → Монеты';
+            const canCoins = Math.floor(state.mine.gold / 2);
+            body.innerHTML = `<div class="card-item" style="background:#1e2630;border-color:#48586b;text-align:center;">Курс: <b>2 золота = 1 монета</b><br>Доступно золота: <b>${state.mine.gold}</b> (Получите: <b>${canCoins} 🪙</b>)<div class="btn-row-2"><button class="card-btn" style="background:#52b83e;color:#fff;" ${canCoins<=0?'disabled':''} onclick="doMineEx('gold')">Обменять всё</button><button class="card-btn" onclick="openModal('mine')">Отмена</button></div></div>`;
+        } else {
+            title.innerText = 'Кристаллы → Гемы';
+            const canGems = Math.floor(state.mine.crystal / 60);
+            body.innerHTML = `<div class="card-item" style="background:#1e2630;border-color:#48586b;text-align:center;">Курс: <b>60 кристаллов = 1 гем</b><br>Доступно кристаллов: <b>${state.mine.crystal}</b> (Получите: <b>${canGems} 💎</b>)<div class="btn-row-2"><button class="card-btn" style="background:#52b83e;color:#fff;" ${canGems<=0?'disabled':''} onclick="doMineEx('crystal')">Обменять всё</button><button class="card-btn" onclick="openModal('mine')">Отмена</button></div></div>`;
+        }
+    }
+
+    function doMineEx(kind) {
+        if (kind === 'gold') {
+            const c = Math.floor(state.mine.gold / 2); if (c <= 0) return;
+            state.mine.gold -= c * 2; state.coins += c; showToast(`Получено +${c} 🪙!`);
+        } else {
+            const g = Math.floor(state.mine.crystal / 60); if (g <= 0) return;
+            state.mine.crystal -= g * 60; state.gems += g; showToast(`Получено +${g} 💎!`);
+        }
+        saveGame(); renderMain(); openModal('mine');
+    }
+    function getDailyResetStr() {
+        const now = new Date(), end = new Date(now);
+        end.setHours(24, 0, 0, 0);
+        return fmtTime(Math.max(0, Math.floor((end - now) / 1000)));
+    }
+
+    function openModal(type, subTab = 0) {
+        stopFishLoop();
+        const box = document.getElementById('modalBox'), title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
+        box.classList.remove('pond-theme', 'mine-theme'); tabs.innerHTML = ''; body.innerHTML = '';
+        document.getElementById('modalOverlay').classList.add('active');
+
+        if (type === 'pond') { renderPondModal(subTab, title, tabs, body); return; }
+        if (type === 'compost') { renderCompostModal(title, body); return; }
+        if (type === 'mine') { renderMineModal(title, body); return; }
+
         if (type === 'shop') {
             title.innerText = 'Магазин';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('shop',0)">Семена</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('shop',1)">Монеты</button><button class="tab-btn ${subTab===2?'active':''}" onclick="openModal('shop',2)">Прочее</button>`;
             if (subTab === 0) {
                 Object.entries(GAME_CONFIG.crops).forEach(([k, c]) => {
                     const locked = state.level < c.reqLvl;
-                    body.innerHTML += `<div class="card-item"><b>${c.icon} Семена: ${c.name}</b><br>Цена: ${c.buyPrice} монет | Ваши семена: ${state.seeds[k] || 0} шт.<button class="card-btn" ${locked ? 'disabled' : ''} onclick="buySeed('${k}')">${locked ? 'Доступно с уровня ' + c.reqLvl : 'Купить'}</button></div>`;
+                    body.innerHTML += `<div class="card-item"><b>${c.icon} Семена: ${c.name}</b> (${fmtTime(c.time)})<br>Цена: ${c.buyPrice} 🪙 | Семян: ${state.seeds[k] || 0} шт.<button class="card-btn" ${locked ? 'disabled' : ''} onclick="buySeed('${k}')">${locked ? 'С уровня ' + c.reqLvl : 'Купить'}</button></div>`;
                 });
             } else if (subTab === 1) {
                 body.innerHTML = `<div class="card-item"><b>🪙 +500 монет</b> — 0.15 TON<button class="card-btn" onclick="showToast('Оплата TON настраивается с Сарой')">Купить</button></div><div class="card-item"><b>🪙 +2500 монет (Best price!)</b> — 0.55 TON<button class="card-btn" onclick="showToast('Оплата TON настраивается с Сарой')">Купить</button></div><div class="card-item"><b>💎 +50 гемов</b> — 1.1 TON<button class="card-btn" onclick="showToast('Оплата TON настраивается с Сарой')">Купить</button></div>`;
@@ -410,11 +701,11 @@
             }
         } else if (type === 'barn') {
             title.innerText = 'Склад';
-            tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('barn',0)">Семена</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('barn',1)">Склад</button>`;
+            tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('barn',0)">Семена</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('barn',1)">Урожай</button>`;
             if (subTab === 0) {
                 Object.entries(GAME_CONFIG.crops).forEach(([k, c]) => {
                     const cnt = state.seeds[k] || 0;
-                    body.innerHTML += `<div class="card-item"><b>${c.icon} ${c.name}</b> (Урожай: ${c.yield} | XP: ${c.xp} | ${c.time}с)<br>Семян: ${cnt} шт.<button class="card-btn" ${!cnt ? 'disabled' : ''} onclick="plantFromBarn('${k}')">Посадить</button></div>`;
+                    body.innerHTML += `<div class="card-item"><b>${c.icon} ${c.name}</b> (Урожай: ${c.yield} | XP: ${c.xp} | ${fmtTime(c.time)})<br>Семян: ${cnt} шт.<button class="card-btn" ${!cnt ? 'disabled' : ''} onclick="plantFromBarn('${k}')">Посадить</button></div>`;
                 });
             } else {
                 let totalVal = 0;
@@ -425,53 +716,52 @@
                     body.innerHTML += `<div class="card-item"><b>${c.icon} ${c.name}: ${cnt} шт.</b> (${c.sellPrice} 🪙/шт.)<button class="card-btn" ${!cnt ? 'disabled' : ''} onclick="sellOne('${k}')">Продать</button></div>`;
                 });
             }
-        } else if (type === 'bonus') {
+        } else {
+            openModalExtra(type, subTab, title, tabs, body);
+        }
+    }
+    function openModalExtra(type, subTab, title, tabs, body) {
+        if (type === 'bonus') {
             title.innerText = 'Бонус';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('bonus',0)">❓ Загадка</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('bonus',1)">🎁 Промокод</button>`;
             if (subTab === 0) {
                 const r = GAME_CONFIG.dailyRiddle;
-                body.innerHTML = `<div class="card-item"><b>${r.question}</b><br><small>⏳ Сброс через: <b class="day-timer">${getDayResetTimer()}</b></small><br><br>Награда: ${r.coins} монет, ${r.gems} гемов, ${r.xp} XP${state.riddleDone ? '<button class="card-btn" disabled>Загадка уже разгадана!</button>' : '<input id="rIn" placeholder="Введите ответ..." style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:none;"><button class="card-btn" onclick="checkRiddle()">Проверить</button>'}</div>`;
+                body.innerHTML = `<div class="card-item"><b>${r.question}</b><br><small>Обновление через: <span class="daily-cd">${getDailyResetStr()}</span></small><br><br>Награда: ${r.coins} 🪙, ${r.gems} 💎, ${r.xp} XP${state.riddleDone ? '<button class="card-btn" disabled>Загадка уже разгадана!</button>' : '<input id="rIn" placeholder="Введите ответ..." style="width:100%;padding:8px;margin-top:8px;border-radius:8px;border:none;"><button class="card-btn" onclick="checkRiddle()">Проверить</button>'}</div>`;
             } else {
-                body.innerHTML = `<div class="card-item"><input id="promoIn" placeholder="Введите промокод (напр. FARM2026)..." style="width:100%;padding:10px;border-radius:10px;border:none;"><button class="card-btn" onclick="activatePromo()">Активировать</button></div>`;
+                body.innerHTML = `<div class="card-item"><input id="promoIn" placeholder="FARM2026 или FISH..." style="width:100%;padding:10px;border-radius:10px;border:none;"><button class="card-btn" onclick="activatePromo()">Активировать</button></div>`;
             }
-        } else {
-            openModalEnd(type, subTab, title, tabs, body);
-        }
-    }
-    function openModalEnd(type, subTab, title, tabs, body) {
-        if (type === 'tasks') {
+        } else if (type === 'contests') {
+            title.innerText = '🏆 Конкурсы';
+            body.innerHTML = `<div class="card-item"><b>🎣 Турнир рыбаков недели</b><br>Ловите рыбу на 4–5 звёзд и попадайте в топ!<br><br>Ваш улов в садке: <b>${state.fishBag.length} шт.</b></div>`;
+        } else if (type === 'tasks') {
             title.innerText = 'Задания';
             tabs.innerHTML = `<button class="tab-btn ${subTab===0?'active':''}" onclick="openModal('tasks',0)">Основные</button><button class="tab-btn ${subTab===1?'active':''}" onclick="openModal('tasks',1)">Партнёрские</button>`;
             if (subTab === 0) {
-                const uCnt = state.plots.filter(p => p.unlocked).length;
-                const tasksList = [
-                    { id: 't_p10', title: 'Открой грядку', desc: `Открой 10 грядок на ферме (${uCnt}/10)`, rew: '20 💎, 60 XP', ok: uCnt >= 10, c: 0, g: 20, x: 60 },
-                    { id: 't_pall', title: 'Открой грядку', desc: `Открой все грядки на ферме (${uCnt}/16)`, rew: '50 💎, 140 XP', ok: uCnt >= 16, c: 0, g: 50, x: 140 },
-                    { id: 't_ch4', title: 'Улучшить курицу', desc: 'Улучшить любую курицу до 4 уровня', rew: '500 🪙, 20 💎, 100 XP', ok: false, c: 500, g: 20, x: 100 },
-                    { id: 't_ch5', title: 'Улучшить курицу', desc: 'Улучшить любую курицу до 5 уровня', rew: '1000 🪙, 50 💎, 200 XP', ok: false, c: 1000, g: 50, x: 200 },
-                    { id: 't_cow1', title: 'Купить корову', desc: 'Купить любую корову в коровнике', rew: '300 🪙, 10 💎, 50 XP', ok: !!state.built['barn'], c: 300, g: 10, x: 50 },
-                    { id: 't_cow4', title: 'Улучшить корову', desc: 'Улучшить любую корову до 4 уровня', rew: '1000 🪙, 30 💎, 120 XP', ok: false, c: 1000, g: 30, x: 120 },
-                    { id: 't_sh1', title: 'Купить овцу', desc: 'Купить любую овцу в овчарне', rew: '500 🪙, 15 💎, 60 XP', ok: !!state.built['sheep'], c: 500, g: 15, x: 60 },
-                    { id: 't_sh4', title: 'Улучшить овцу', desc: 'Улучшить любую овцу до 4 уровня', rew: '1500 🪙, 40 💎, 150 XP', ok: false, c: 1500, g: 40, x: 150 },
-                    { id: 't_f3', title: 'Пригласи 3 игроков', desc: 'Прогресс: 0/3', rew: '500 🪙, 15 💎, 100 XP', ok: false, c: 500, g: 15, x: 100 },
-                    { id: 't_f10', title: 'Пригласи 10 игроков', desc: 'Прогресс: 0/10', rew: '1800 🪙, 30 💎, 400 XP', ok: false, c: 1800, g: 30, x: 400 }
-                ];
-                body.innerHTML = tasksList.map(t => {
-                    const done = !!state.doneTasks[t.id];
-                    return `<div class="card-item"><b>📝 ${t.title}</b><br>${t.desc}<br>Награда: ${t.rew}<button class="card-btn" ${done ? 'disabled' : ''} onclick="${t.ok ? `claimTask('${t.id}',${t.c},${t.g},${t.x})` : `showToast('Условие пока не выполнено')`}">${done ? 'Получено ✓' : 'Проверить'}</button></div>`;
-                }).join('');
+                const uCnt = state.plots.filter(p => p.unlocked).length, done = !!state.doneTasks['p10'];
+                body.innerHTML = `<div style="text-align:center;font-size:12px;font-weight:bold;">⏳ Сброс ежедневных через: <span class="daily-cd">${getDailyResetStr()}</span></div><div class="card-item"><b>📝 Открой 10 грядок на ферме</b><br>Прогресс: ${uCnt}/10 | Награда: 50 💎, 140 XP<button class="card-btn" ${done || uCnt < 10 ? 'disabled' : ''} onclick="claimTask('p10',0,50,140)">${done ? 'Получено' : 'Проверить'}</button></div><div class="card-item"><b>👥 Пригласи 3 игроков</b><br>Прогресс: 0/3 | Награда: 500 🪙, 15 💎, 60 XP<button class="card-btn" onclick="showToast('Пригласите друзей по ссылке!')">Проверить</button></div>`;
             } else {
-                body.innerHTML = `<div class="card-ads"><b>📺 Смотри рекламу — за награду!</b><br>Осталось сегодня: ${state.adsToday} из 50<br><small>⏳ Сброс лимита через: <b class="day-timer">${getDayResetTimer()}</b></small><br>Награда: 100 🪙, 1 💎, 25 XP<button class="card-btn" ${state.adsToday<=0?'disabled':''} onclick="watchAd()">Смотреть рекламу</button></div>`;
+                body.innerHTML = `<div class="card-ads"><b>📺 Смотри рекламу — за награду!</b><br>Осталось сегодня: ${state.adsToday} из 50 (сброс: <span class="daily-cd">${getDailyResetStr()}</span>)<br>Награда: 100 🪙, 1 💎, 25 XP<button class="card-btn" ${state.adsToday<=0?'disabled':''} onclick="watchAd()">Смотреть рекламу</button></div>`;
                 GAME_CONFIG.partnerTasks.forEach(t => {
                     const done = !!state.doneTasks[t.id];
                     body.innerHTML += `<div class="card-item"><b>📢 ${t.title}</b><br>${t.desc}<br>Награда: ${t.coins} 🪙, ${t.gems} 💎, ${t.xp} XP<button class="card-btn" ${done?'disabled':''} onclick="doPartner('${t.id}','${t.link}',${t.coins},${t.gems},${t.xp})">${done?'Выполнено ✓':'Перейти'}</button></div>`;
                 });
             }
+        } else if (type === 'pass') {
+            title.innerText = 'Пропуск';
+            let rows = `<div class="card-item" style="text-align:center;">Ваш уровень: <b>${state.level} / 100</b> | Премиум: 4 TON<button class="card-btn" style="background:#f5b027;" onclick="showToast('Активация Премиум за 4 TON настраивается с Сарой')">Активировать Премиум</button></div>`;
+            for (let i = 1; i <= 100; i++) {
+                const claimed = !!state.doneTasks['pass_' + i], canClaim = state.level >= i && !claimed;
+                const rCoins = 150 + i * 10, rGems = i % 3 === 0 ? 1 : 0;
+                const freeTxt = rGems ? `${rGems} 💎` : `${rCoins} 🪙`;
+                const premTxt = i % 2 === 0 ? `${2 + Math.floor(i/15)} 💎` : `${450 + i * 25} 🪙`;
+                rows += `<div class="pass-row"><div class="pass-cell ${claimed?'claimed':''}" onclick="${canClaim?`claimTask('pass_${i}',${rGems?0:rCoins},${rGems},0);openModal('pass');`:`showToast('Доступно с уровня ${i}')`}"><b>Бесплатно</b><br>${freeTxt} ${claimed?'✓':(state.level>=i?'🎁':'🔒')}</div><div class="pass-lvl">${i}</div><div class="pass-cell" onclick="showToast('Нужен Премиум пропуск')"><b>Премиум</b><br>${premTxt} 🔒</div></div>`;
+            }
+            body.innerHTML = rows;
         } else {
-            openModalLast(type, subTab, title, tabs, body);
+            openModalTail(type, title, body);
         }
     }
-    function openModalLast(type, subTab, title, tabs, body) {
+    function openModalTail(type, title, body) {
         if (type === 'market') {
             title.innerText = 'Маркет';
             body.innerHTML = `<div class="filter-row"><select id="fType" class="filter-sel" onchange="filterMarket()"><option value="all">Все</option><option value="Курица">Курица</option><option value="Корова">Корова</option><option value="Овца">Овца</option></select><select id="fLvl" class="filter-sel" onchange="filterMarket()"><option value="all">Любой ур.</option><option value="4">4 ур.</option><option value="5">5 ур.</option></select><select id="fSort" class="filter-sel" onchange="filterMarket()"><option value="asc">Дешевле</option><option value="desc">Дороже</option></select></div><div id="marketList"></div>`;
@@ -479,16 +769,6 @@
         } else if (type === 'wallet') {
             title.innerText = 'Кошелёк';
             body.innerHTML = `<div class="card-item"><b>💠 0,00 TON</b><br><br>1. Адрес TON:<br><code>${GAME_CONFIG.tonWalletAddress}</code><br>2. Ваш MEMO:<br><b>${playerId}</b><button class="card-btn" onclick="showToast('Пополнений пока не найдено')">Проверить пополнение</button></div>`;
-        } else if (type === 'pass') {
-            title.innerText = 'Пропуск';
-            let rows = `<div class="card-item" style="text-align:center;">Ваш уровень: <b>${state.level} / 100</b> | Премиум: <b>4 TON</b></div>`;
-            const freeRewards = ['🌾 2 шт.', '🪙 100', '🌽 1 шт.', '💎 1', '🍄 2 шт.', '🪙 250', '🥕 1 шт.', '💎 2', '🍉 1 шт.', '🪙 500'];
-            const premRewards = ['🪙 250', '💎 2', '🌽 3 шт.', '🪙 500', '💎 3', '🍄 3 шт.', '🪙 800', '💎 5', '🍉 2 шт.', '💎 10'];
-            for (let i = 1; i <= 100; i++) {
-                const fR = freeRewards[(i - 1) % freeRewards.length], pR = premRewards[(i - 1) % premRewards.length];
-                rows += `<div class="pass-row"><div><b>Бесплатно</b><br>${fR}</div><div class="pass-lvl">${i}</div><div><b>Премиум</b><br>${pR}</div></div>`;
-            }
-            body.innerHTML = rows;
         } else if (type === 'friends') {
             title.innerText = 'Друзья и награды';
             const refLink = 'https://t.me' + '/serz11_minifarm_bot/farm?startapp=' + playerId;
@@ -499,56 +779,47 @@
         }
     }
 
-    function startMineCycle() {
-        const now = Math.floor(Date.now() / 1000);
-        if ((state.mine.miningEnd || 0) > now) return;
-        state.mine.miningEnd = now + 4 * 3600;
-        state.mine.claimed = false;
-        saveGame(); openModal('mine');
+    function filterMarket() {
+        const t = document.getElementById('fType')?.value || 'all', l = document.getElementById('fLvl')?.value || 'all', s = document.getElementById('fSort')?.value || 'asc';
+        let list = GAME_CONFIG.marketItems.filter(x => (t === 'all' || x.type === t) && (l === 'all' || String(x.lvl) === l));
+        list.sort((a, b) => s === 'asc' ? a.price - b.price : b.price - a.price);
+        const box = document.getElementById('marketList');
+        if (!box) return;
+        box.innerHTML = list.length ? list.map(x => `<div class="card-item" style="margin-bottom:8px;"><b>${x.icon} ${x.type} LVL ${x.lvl}</b> (${x.income})<button class="card-btn" onclick="showToast('Покупка за TON настраивается с Сарой')">Купить (${x.price} 💎)</button></div>`).join('') : `<div style="text-align:center;padding:12px;">Подходящих животных пока нет.</div>`;
     }
-
-    function claimMineReward() {
-        const now = Math.floor(Date.now() / 1000);
-        const m = state.mine;
-        if ((m.miningEnd || 0) > now || m.claimed) return;
-        const addCoal = 25 + m.stats.speed * 5 + Math.floor(Math.random() * 15);
-        const addGold = 600 + m.stats.energy * 120 + Math.floor(Math.random() * 200);
-        const addCryst = (Math.random() < 0.5 + m.stats.luck * 0.025) ? (60 + m.stats.luck * 15) : 0;
-        m.coal += addCoal; m.gold += addGold; m.crystal += addCryst; m.claimed = true;
-        saveGame(); showToast(`Добыто: +${addGold} 🥇, +${addCoal} 🪨${addCryst ? `, +${addCryst} 💎` : ''}!`);
-        openModal('mine');
-    }
-    function openMineDialog(mode) {
-        const title = document.getElementById('modalTitle'), tabs = document.getElementById('modalTabs'), body = document.getElementById('modalBody');
-        tabs.innerHTML = '';
-        if (mode === 'upgrade') {
-            title.innerText = 'Улучшение кирки';
-            body.innerHTML = `<div class="card-item" style="background:#3c4a5c;border-color:#647891;text-align:center;">Стоимость: <b>25 💎 | 2 000 🪙 | 60 🪨</b><br>Шанс успеха: <b>75%</b><br><small>После 5 неудач подряд улучшение гарантировано (${state.mine.failStreak}/5).</small><div class="btn-row-2"><button class="card-btn" style="background:#f5b027;" onclick="doPickUpgrade()">Улучшить</button><button class="card-btn" onclick="openModal('mine')">Отмена</button></div></div>`;
-        } else if (mode === 'gold') {
-            title.innerText = 'Золото ➔ Монеты';
-            body.innerHTML = `<div class="card-item" style="background:#3c4a5c;border-color:#647891;text-align:center;">Курс: <b>2 золота = 1 монета</b><br>Доступно золота: <b>${state.mine.gold}</b> (Получите: <b>${Math.floor(state.mine.gold / 2)} 🪙</b>)<div class="btn-row-2"><button class="card-btn" style="background:#f5b027;" onclick="doMineExchange('gold')">Обменять всё</button><button class="card-btn" onclick="openModal('mine')">Отмена</button></div></div>`;
-        } else {
-            title.innerText = 'Кристаллы ➔ Гемы';
-            body.innerHTML = `<div class="card-item" style="background:#3c4a5c;border-color:#647891;text-align:center;">Курс: <b>60 кристаллов = 1 гем</b><br>Доступно кристаллов: <b>${state.mine.crystal}</b> (Получите: <b>${Math.floor(state.mine.crystal / 60)} 💎</b>)<div class="btn-row-2"><button class="card-btn" style="background:#f5b027;" onclick="doMineExchange('crystal')">Обменять всё</button><button class="card-btn" onclick="openModal('mine')">Отмена</button></div></div>`;
-        }
-    }
-
-    function doPickUpgrade() { const m = state.mine; if (state.gems < 25 || state.coins < 2000 || m.coal < 60) return showToast('Нужно 25 💎, 2000 🪙 и 60 🪨'); state.gems -= 25; state.coins -= 2000; m.coal -= 60; if (Math.random() < 0.75 || m.failStreak >= 5) { m.failStreak = 0; const keys = ['speed', 'energy', 'luck'].filter(k => m.stats[k] < 20); if (keys.length) { const k = keys[Math.floor(Math.random() * keys.length)]; m.stats[k]++; } showToast('Успех! Качество кирки повышено!'); } else { m.failStreak++; showToast(`Неудача (${m.failStreak}/5)!`); } saveGame(); renderMain(); openModal('mine'); }
-    function doMineExchange(kind) { const m = state.mine; if (kind === 'gold') { const c = Math.floor(m.gold / 2); if (!c) return showToast('Нужно минимум 2 золота!'); m.gold -= c * 2; state.coins += c; showToast(`Получено +${c} 🪙`); } else { const g = Math.floor(m.crystal / 60); if (!g) return showToast('Нужно минимум 60 кристаллов!'); m.crystal -= g * 60; state.gems += g; showToast(`Получено +${g} 💎`); } saveGame(); renderMain(); openModal('mine'); }
-    function filterMarket() { const t = document.getElementById('fType')?.value || 'all', l = document.getElementById('fLvl')?.value || 'all', s = document.getElementById('fSort')?.value || 'asc'; let list = GAME_CONFIG.marketItems.filter(x => (t === 'all' || x.type === t) && (l === 'all' || String(x.lvl) === l)); list.sort((a, b) => s === 'asc' ? a.price - b.price : b.price - a.price); const box = document.getElementById('marketList'); if (box) box.innerHTML = list.length ? list.map(x => `<div class="card-item" style="margin-bottom:8px;"><b>${x.icon} ${x.type} LVL ${x.lvl}</b> (${x.income})<button class="card-btn" onclick="showToast('Покупка за TON настраивается с Сарой')">Купить (${x.price} 💎)</button></div>`).join('') : `<div style="text-align:center;padding:12px;">Подходящих животных пока нет.</div>`; }
     function plantFromBarn(k) { const ep = state.plots.find(p => p.unlocked && !p.crop); if (!ep) return showToast('Нет свободных грядок!'); if ((state.seeds[k] || 0) <= 0) return; state.seeds[k]--; ep.crop = k; ep.timeLeft = GAME_CONFIG.crops[k].time; saveGame(); renderMain(); closeModal(); }
     function watchAd() { if (state.adsToday <= 0) return; state.adsToday--; state.coins += 100; state.gems += 1; addXp(25); saveGame(); renderMain(); openModal('tasks', 1); }
     function activatePromo() { const code = (document.getElementById('promoIn')?.value || '').trim().toUpperCase(); const p = GAME_CONFIG.promoCodes[code]; if (!p) return showToast('Неверный промокод!'); if (state.usedPromos[code]) return showToast('Промокод уже использован!'); state.usedPromos[code] = true; state.coins += p.coins; state.gems += p.gems; addXp(p.xp); saveGame(); renderMain(); showToast(`+${p.coins} 🪙, +${p.gems} 💎!`); closeModal(); }
     function copyText(txt) { navigator.clipboard?.writeText(txt); showToast('Ссылка скопирована!'); }
     function doPartner(id, link, c, g, x) { window.open(link, '_blank'); state.doneTasks[id] = true; state.coins += c; state.gems += g; addXp(x); saveGame(); renderMain(); openModal('tasks', 1); }
-    function claimTask(id, c, g, x) { state.doneTasks[id] = true; state.coins += c; state.gems += g; addXp(x); saveGame(); renderMain(); openModal('tasks', 0); }
+    function claimTask(id, c, g, x) { state.doneTasks[id] = true; state.coins += c; state.gems += g; addXp(x); saveGame(); renderMain(); if (!id.startsWith('pass_')) openModal('tasks', 0); }
     function buySeed(k) { const c = GAME_CONFIG.crops[k]; if (state.coins < c.buyPrice) return showToast('Недостаточно монет!'); state.coins -= c.buyPrice; state.seeds[k] = (state.seeds[k] || 0) + 1; saveGame(); renderMain(); openModal('shop', 0); }
     function sellOne(k) { const cnt = state.harvest[k] || 0; if (!cnt) return; state.coins += cnt * GAME_CONFIG.crops[k].sellPrice; state.harvest[k] = 0; saveGame(); renderMain(); openModal('barn', 1); }
     function sellAll() { let s = 0; Object.keys(GAME_CONFIG.crops).forEach(k => { s += (state.harvest[k] || 0) * GAME_CONFIG.crops[k].sellPrice; state.harvest[k] = 0; }); if (!s) return showToast('Склад пуст!'); state.coins += s; saveGame(); renderMain(); openModal('barn', 1); }
     function checkRiddle() { const v = (document.getElementById('rIn')?.value || '').trim().toLowerCase(); const r = GAME_CONFIG.dailyRiddle; if (v === r.answer) { state.coins += r.coins; state.gems += r.gems; addXp(r.xp); state.riddleDone = true; saveGame(); renderMain(); openModal('bonus', 0); } else showToast('Неверно! Подсказка: пшеница'); }
-    const closeModal = () => document.getElementById('modalOverlay').classList.remove('active');
+    const closeModal = () => { stopFishLoop(); document.getElementById('modalOverlay').classList.remove('active'); };
     const closeModalOnBg = (e) => { if (e.target.id === 'modalOverlay') closeModal(); };
-    setInterval(() => { const curDay = new Date().toDateString(); if (state.lastDay !== curDay) { state.lastDay = curDay; state.adsToday = 50; state.riddleDone = false; saveGame(); } document.querySelectorAll('.day-timer').forEach(el => el.innerText = getDayResetTimer()); let u = false; state.plots.forEach(p => { if (p.crop && p.timeLeft > 0) { p.timeLeft--; u = true; } }); if (u) saveGame(); renderMain(); if (document.getElementById('modalOverlay').classList.contains('active') && document.getElementById('modalTitle').innerText === 'Шахта') openModal('mine'); }, 1000);
+
+    setInterval(() => {
+        let u = false;
+        state.plots.forEach(p => { if (p.crop && p.timeLeft > 0) { p.timeLeft--; u = true; } });
+        Object.keys(state.treeCd).forEach(k => { if (state.treeCd[k] > 0) { state.treeCd[k]--; u = true; } });
+        if (state.mine.cdLeft > 0) {
+            state.mine.cdLeft--; u = true;
+            document.querySelectorAll('.mine-cd').forEach(el => el.innerText = fmtTime(state.mine.cdLeft));
+            if (state.mine.cdLeft === 0) {
+                const m = state.mine, mult = 1 + Math.floor(m.energyLvl / 4), luck = m.luckLvl * 0.03;
+                m.gold += (2 + Math.floor(Math.random() * 3 + luck)) * mult;
+                m.crystal += (5 + Math.floor(Math.random() * 8 + luck * 5)) * mult;
+                m.coal += (10 + Math.floor(Math.random() * 10)) * mult;
+                m.cdLeft = Math.max(900, 7500 - m.speedLvl * 300);
+                if (document.getElementById('modalTitle')?.innerText === 'Шахта') openModal('mine');
+            }
+        }
+        document.querySelectorAll('.daily-cd').forEach(el => el.innerText = getDailyResetStr());
+        if (u) { saveGame(); renderMain(); }
+    }, 1000);
+
     renderMain();
 </script>
 </body>
