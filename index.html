@@ -509,23 +509,69 @@
         }, 1200 + Math.random() * 1400);
     }
 
-    function showHookGauge() {
+        function showHookGauge() {
         const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || GAME_CONFIG.rods;
         const zStart = Math.round(50 - rod.zone / 2);
-        const wrap = document.getElementById('gaugeWrap'), btn = document.getElementById('castBtn');
+        const wrap = document.getElementById('gaugeWrap'), btn = document.getElementById('castBtn'), water = document.getElementById('pondWater');
         if (!wrap) return;
         wrap.innerHTML = `<div class="fish-gauge"><div class="fish-zone" style="left:${zStart}%;width:${rod.zone}%;"></div><div class="fish-pin" id="fishPin" style="left:0%;"></div></div>`;
-        if (btn) { btn.disabled = false; btn.style.background = '#ecc94b'; btn.style.color = '#4a280a'; btn.innerText = '⚡ ПОДСЕЧЬ!'; btn.onclick = () => catchFish(zStart, rod.zone); }
+        const doHook = () => catchFish(zStart, rod.zone);
+        if (water) { water.style.cursor = 'pointer'; water.onclick = doHook; }
+        if (btn) { btn.disabled = false; btn.style.background = '#ecc94b'; btn.style.color = '#4a280a'; btn.innerText = '⚡ ПОДСЕЧЬ!'; btn.onclick = doHook; }
         fishPinPos = 0; fishPinDir = 1;
         fishTimer = setInterval(() => {
-            fishPinPos += fishPinDir * 4;
+            fishPinPos += fishPinDir * 2.2;
             if (fishPinPos >= 96) { fishPinPos = 96; fishPinDir = -1; }
             if (fishPinPos <= 0) { fishPinPos = 0; fishPinDir = 1; }
             const el = document.getElementById('fishPin');
             if (el) el.style.left = fishPinPos + '%';
         }, 35);
     }
-    function renderPondTabs(subTab, body) {
+
+    function catchFish(zStart, zWidth) {
+        stopFishLoop();
+        const water = document.getElementById('pondWater');
+        if (water) water.onclick = null;
+        if ((state.baits[state.activeBait] || 0) <= 0) return showToast('Закончилась наживка!');
+        state.baits[state.activeBait]--;
+        const pinLeft = fishPinPos, pinRight = fishPinPos + 2.5;
+        const hit = pinRight >= (zStart - 2) && pinLeft <= (zStart + zWidth + 2);
+        if (!hit) {
+            saveGame();
+            showToast('💨 Сорвалась! Жмите, когда полоска в зелёной зоне');
+            openModal('pond', 0);
+            return;
+        }
+        const pinCenter = fishPinPos + 1.25;
+        const perfect = Math.abs(pinCenter - (zStart + zWidth / 2)) <= (zWidth * 0.28);
+        const bait = GAME_CONFIG.baits[state.activeBait];
+        const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || GAME_CONFIG.rods;
+
+        let pool = GAME_CONFIG.fishes.filter(f => f.tier <= bait.tier).map(f => {
+            let w = f.weight;
+            if (f.rarity === 'Мусор') w = Math.max(2, Math.round(w / bait.tier));
+            if (f.tier === bait.tier && bait.tier > 1) w += 18;
+            return { ...f, w };
+        });
+        const sumW = pool.reduce((a, b) => a + b.w, 0);
+        let rnd = Math.random() * sumW, chosen = pool[0];
+        for (const item of pool) { if (rnd < item.w) { chosen = item; break; } rnd -= item.w; }
+
+        let stars = 1;
+        if (chosen.rarity !== 'Мусор') {
+            const starRoll = Math.random() * 100 + rod.starBonus + (perfect ? 25 : 0);
+            if (starRoll > 125) stars = 5; else if (starRoll > 100) stars = 4; else if (starRoll > 75) stars = 3; else if (starRoll > 45) stars = 2;
+        }
+        const finalPrice = Math.round(chosen.basePrice * (1 + (stars - 1) * 0.25));
+        state.fishBag.push({ id: chosen.id, name: chosen.name, icon: chosen.icon, rarity: chosen.rarity, stars, price: finalPrice, compPts: chosen.compPts * stars });
+        addXp(perfect ? 18 : 8);
+        saveGame(); renderMain();
+        showToast(`${perfect ? '🎯 Идеально! ' : ''}${chosen.icon} ${chosen.name}${chosen.rarity!=='Мусор'?' ('+'⭐'.repeat(stars)+')':''}`);
+        openModal('pond', 0);
+    }
+
+
+        function renderPondTabs(subTab, body) {
         if (subTab === 1) {
             let totalSell = 0;
             state.fishBag.forEach(f => totalSell += f.price);
@@ -556,45 +602,7 @@
             });
         }
     }
-    function catchFish(zStart, zWidth) {
-        stopFishLoop();
-        if ((state.baits[state.activeBait] || 0) <= 0) return showToast('Закончилась наживка!');
-        state.baits[state.activeBait]--;
-        const hit = fishPinPos >= zStart && fishPinPos <= (zStart + zWidth);
-        if (!hit) {
-            saveGame();
-            showToast('💨 Сорвалась! Попадите в зелёную зону');
-            openModal('pond', 0);
-            return;
-        }
-        const perfect = Math.abs(fishPinPos - (zStart + zWidth / 2)) <= (zWidth * 0.22);
-        const bait = GAME_CONFIG.baits[state.activeBait];
-        const rod = GAME_CONFIG.rods.find(r => r.id === state.activeRod) || GAME_CONFIG.rods;
-
-        let pool = GAME_CONFIG.fishes.filter(f => f.tier <= bait.tier).map(f => {
-            let w = f.weight;
-            if (f.rarity === 'Мусор') w = Math.max(2, Math.round(w / bait.tier));
-            if (f.tier === bait.tier && bait.tier > 1) w += 18;
-            return { ...f, w };
-        });
-        const sumW = pool.reduce((a, b) => a + b.w, 0);
-        let rnd = Math.random() * sumW, chosen = pool;
-        for (const item of pool) { if (rnd < item.w) { chosen = item; break; } rnd -= item.w; }
-
-        let stars = 1;
-        if (chosen.rarity !== 'Мусор') {
-            const starRoll = Math.random() * 100 + rod.starBonus + (perfect ? 25 : 0);
-            if (starRoll > 125) stars = 5; else if (starRoll > 100) stars = 4; else if (starRoll > 75) stars = 3; else if (starRoll > 45) stars = 2;
-        }
-        const finalPrice = Math.round(chosen.basePrice * (1 + (stars - 1) * 0.25));
-        state.fishBag.push({ id: chosen.id, name: chosen.name, icon: chosen.icon, rarity: chosen.rarity, stars, price: finalPrice, compPts: chosen.compPts * stars });
-        addXp(perfect ? 18 : 8);
-        saveGame(); renderMain();
-        showToast(`${perfect ? '🎯 Идеально! ' : ''}${chosen.icon} ${chosen.name}${chosen.rarity!=='Мусор'?' ('+'⭐'.repeat(stars)+')':''}`);
-        openModal('pond', 0);
-    }
-
-    function sellOneFish(i) { const f = state.fishBag[i]; if (!f) return; state.coins += f.price; state.fishBag.splice(i, 1); saveGame(); renderMain(); openModal('pond', 1); }
+function sellOneFish(i) { const f = state.fishBag[i]; if (!f) return; state.coins += f.price; state.fishBag.splice(i, 1); saveGame(); renderMain(); openModal('pond', 1); }
     function sellAllFish() { let s = 0; state.fishBag.forEach(f => s += f.price); if (!s) return; state.coins += s; state.fishBag = []; saveGame(); renderMain(); openModal('pond', 1); showToast(`Продано на ${s} 🪙!`); }
     function buyBait(k) { const b = GAME_CONFIG.baits[k]; if (state.coins < b.buyPrice) return showToast('Недостаточно монет!'); state.coins -= b.buyPrice; state.baits[k] = (state.baits[k] || 0) + 1; saveGame(); renderMain(); openModal('pond', 2); }
     function craftBait(k) { const b = GAME_CONFIG.baits[k]; if ((state.harvest[b.craftCrop] || 0) < b.craftQty) return showToast('Не хватает урожая на складе!'); state.harvest[b.craftCrop] -= b.craftQty; state.baits[k] = (state.baits[k] || 0) + 2; saveGame(); openModal('pond', 2); showToast(`Скрафчено 2 шт. ${b.icon}!`); }
